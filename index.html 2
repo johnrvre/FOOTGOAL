@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Foot entre amis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Quiz Football - Défi entre amis ! ⚽</h1>
+    </header>
+
+    <main>
+        <section id="game">
+            <div id="question-container">
+                <p id="question">Chargement...</p>
+                <div id="answers"></div>
+            </div>
+            <div id="timer">Temps restant : <span id="time">10</span>s</div>
+        </section>
+
+        <section id="results" class="hidden">
+            <h2>Fin de la manche !</h2>
+            <p>Gagnant : <span id="winner">?</span></p>
+            <button onclick="startGame()">Rejouer</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>⚽ Portfolio - Jeu Quiz Foot entre amis</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
