@@ -70,11 +70,33 @@ function startTimer() {
 
 function submitAnswer(index) {
     clearInterval(timer);
+
     const correctIndex = questions[currentQuestion].correct;
+    const buttons = document.querySelectorAll("#answers button");
+
+    // Désactiver les clics
+    buttons.forEach(b => b.disabled = true);
+
+    // Ajouter les classes correct/wrong
+    buttons.forEach((btn, i) => {
+        if (i === correctIndex) {
+            btn.classList.add("correct");
+        } else if (i === index) {
+            btn.classList.add("wrong");
+        }
+    });
+
+    // Déterminer le gagnant
     const winnerName = index === correctIndex ? players[0] : players[1];
     document.getElementById("winner").textContent = winnerName;
-    document.getElementById("game").classList.add("hidden");
-    document.getElementById("results").classList.remove("hidden");
+
+    // Attendre un peu avant d'afficher les résultats (1,2s)
+    setTimeout(() => {
+        document.getElementById("game").classList.add("hidden");
+        document.getElementById("results").classList.remove("hidden");
+    }, 1200);
+}
+
 }
 
 function goHome() {
