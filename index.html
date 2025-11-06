@@ -12,7 +12,21 @@
     </header>
 
     <main>
-        <section id="game">
+        <!-- 🏠 Écran d'accueil -->
+        <section id="home">
+            <h2>Bienvenue dans le Quiz Foot !</h2>
+            <p>Entrez vos noms pour commencer la partie :</p>
+
+            <div class="player-inputs">
+                <input type="text" id="player1" placeholder="Nom du Joueur 1">
+                <input type="text" id="player2" placeholder="Nom du Joueur 2">
+            </div>
+
+            <button id="play-btn">Play ▶️</button>
+        </section>
+
+        <!-- 🕹️ Jeu -->
+        <section id="game" class="hidden">
             <div id="question-container">
                 <p id="question">Chargement...</p>
                 <div id="answers"></div>
@@ -20,6 +34,7 @@
             <div id="timer">Temps restant : <span id="time">10</span>s</div>
         </section>
 
+        <!-- 🏁 Résultats -->
         <section id="results" class="hidden">
             <h2>Fin de la manche !</h2>
             <p>Gagnant : <span id="winner">?</span></p>
