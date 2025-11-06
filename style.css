@@ -13,25 +13,22 @@ body {
     background-size: cover;
 }
 
-/* -------------------------
-   🏟️ EN-TÊTE
--------------------------- */
+/* HEADER */
 header {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px 0;
     backdrop-filter: blur(6px);
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
-
 h1 {
     font-size: 30px;
     margin: 0;
-    color: #ffeb3b; /* Jaune ballon */
+    color: #ffeb3b;
     text-shadow: 0 0 10px #00000088;
 }
 
 /* -------------------------
-   🎴 CARTES PRINCIPALES
+   🧱 CARTES (sections)
 -------------------------- */
 .card {
     background: rgba(255, 255, 255, 0.12);
@@ -43,14 +40,13 @@ h1 {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
     animation: fadeIn 0.6s ease-in-out;
 }
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 /* -------------------------
-   🧍 ENTRÉE JOUEURS
+   🧍 ENTRÉE DES JOUEURS
 -------------------------- */
 .player-inputs input {
     display: block;
@@ -62,18 +58,16 @@ h1 {
     border-radius: 10px;
     font-size: 16px;
     text-align: center;
-    outline: none;
     background: rgba(255, 255, 255, 0.1);
     color: white;
 }
-
 .player-inputs input:focus {
     border-color: #ffeb3b;
     box-shadow: 0 0 10px #ffeb3b;
 }
 
 /* -------------------------
-   🟢 BOUTONS MODERNES
+   🟢 BOUTONS
 -------------------------- */
 .btn-primary, .btn-secondary {
     border: none;
@@ -85,42 +79,36 @@ h1 {
     transition: all 0.3s ease;
     font-weight: 600;
 }
-
 .btn-primary {
     background: linear-gradient(90deg, #00b300, #0099ff);
     color: white;
     box-shadow: 0 0 10px #00ff88;
 }
-
 .btn-primary:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px #00ff88;
 }
-
 .btn-secondary {
     background: linear-gradient(90deg, #555, #888);
     color: white;
 }
-
 .btn-secondary:hover {
     background: linear-gradient(90deg, #777, #aaa);
 }
 
 /* -------------------------
-   ⚽ QUESTION & RÉPONSES
+   ⚽ QUESTIONS
 -------------------------- */
 .question {
     font-size: 22px;
     margin-bottom: 25px;
     color: #ffffff;
 }
-
 .answers-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
 }
-
 .answers-grid button {
     background: linear-gradient(135deg, #1a237e, #3949ab);
     color: white;
@@ -133,19 +121,15 @@ h1 {
     transition: all 0.3s;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
 .answers-grid button:hover {
     background: linear-gradient(135deg, #3949ab, #5c6bc0);
     transform: scale(1.05);
 }
-
-/* ---- Animation des réponses ---- */
 .answers-grid button.correct {
     background: linear-gradient(135deg, #00e676, #00c853) !important;
     transform: scale(1.1);
     box-shadow: 0 0 20px #00e676;
 }
-
 .answers-grid button.wrong {
     background: linear-gradient(135deg, #e53935, #b71c1c) !important;
     transform: scale(0.95);
@@ -163,7 +147,7 @@ h1 {
 }
 
 /* -------------------------
-   📊 BARRE DE PROGRESSION
+   📊 PROGRESSION
 -------------------------- */
 .progress-bar {
     position: relative;
@@ -174,23 +158,17 @@ h1 {
     margin-bottom: 20px;
     overflow: hidden;
 }
-
-.progress-bar::before {
+.progress-bar::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    width: 0%;
+    width: var(--progress, 0%);
     background: linear-gradient(90deg, #00ff88, #00b300);
-    transition: width 0.5s ease;
     border-radius: 15px;
+    transition: width 0.4s ease-in-out;
 }
-
-.progress-bar[data-progress]::before {
-    width: attr(data-progress %);
-}
-
 #progress-text {
     font-size: 14px;
     margin-bottom: 10px;
@@ -205,14 +183,23 @@ h1 {
     font-size: 18px;
     color: #00ffcc;
 }
-
 #winner {
     color: #ffeb3b;
     font-weight: bold;
 }
 
 /* -------------------------
-   ⚽ PIED DE PAGE
+   ⚽ TRANSITION ENTRE JOUEURS
+-------------------------- */
+#turn-transition {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffeb3b;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* -------------------------
+   FOOTER
 -------------------------- */
 footer {
     background: rgba(0, 0, 0, 0.3);
@@ -222,12 +209,7 @@ footer {
     bottom: 0;
     font-size: 14px;
     color: #fff;
-    letter-spacing: 0.5px;
 }
 
-/* -------------------------
-   UTILITAIRES
--------------------------- */
-.hidden {
-    display: none;
-}
+/* UTILITAIRES */
+.hidden { display: none; }
