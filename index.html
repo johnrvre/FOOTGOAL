@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- HEADER -->
     <header>
         <h1>⚽ Quiz Football - Défi entre amis</h1>
     </header>
@@ -16,12 +15,15 @@
         <!-- 🏠 ACCUEIL -->
         <section id="home" class="card">
             <h2>Bienvenue dans le Quiz Foot !</h2>
-            <p>Entrez vos noms pour commencer :</p>
+            <p>Sélectionne le nombre de joueurs :</p>
 
-            <div class="player-inputs">
-                <input type="text" id="player1" placeholder="Nom du Joueur 1">
-                <input type="text" id="player2" placeholder="Nom du Joueur 2">
-            </div>
+            <select id="player-count">
+                <option value="2">2 joueurs</option>
+                <option value="3">3 joueurs</option>
+                <option value="4">4 joueurs</option>
+            </select>
+
+            <div id="player-names" class="player-inputs"></div>
 
             <button id="play-btn" class="btn-primary">🎮 Jouer</button>
         </section>
@@ -49,10 +51,7 @@
             <h2>Fin du quiz !</h2>
             <p>🏆 <span id="winner">?</span></p>
 
-            <div class="score-summary">
-                <p id="score1"></p>
-                <p id="score2"></p>
-            </div>
+            <div class="score-summary" id="score-summary"></div>
 
             <button onclick="startGame()" class="btn-primary">🔁 Rejouer</button>
             <button onclick="goHome()" class="btn-secondary">🏠 Retour à l’accueil</button>
