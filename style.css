@@ -136,3 +136,25 @@ footer {
 .hidden {
     display: none;
 }
+/* ---- Animation des réponses ---- */
+.answers-grid button.correct {
+    background-color: #4caf50 !important; /* Vert */
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #4caf50;
+}
+
+.answers-grid button.wrong {
+    background-color: #e53935 !important; /* Rouge */
+    transform: scale(0.95);
+    box-shadow: 0 0 15px #e53935;
+}
+
+/* Animation douce */
+.answers-grid button {
+    transition: all 0.3s ease;
+}
+
+/* Petit effet de clic */
+.answers-grid button:active {
+    transform: scale(0.97);
+}
