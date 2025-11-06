@@ -270,4 +270,5 @@ function showResults() {
 // -------------------------
 function goHome() {
     document.getElementById("results").classList.add("hidden");
-    document.getElementById("home
+    document.getElementById("home").classList.remove("hidden");
+}
