@@ -14,13 +14,16 @@
     <!-- PAGE D'ACCUEIL -->
     <main id="home">
         <h2>Bienvenue !</h2>
-        <label for="player-count">Nombre de joueurs :</label>
-        <select id="player-count">
-            <option value="1">1</option>
-            <option value="2" selected>2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-        </select>
+
+        <div id="player-selection">
+            <label for="player-count">Nombre de joueurs :</label>
+            <select id="player-count">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
 
         <div id="player-names">
             <input type="text" id="player0" placeholder="Nom Joueur 1">
@@ -38,7 +41,7 @@
     <!-- PAGE DE JEU -->
     <main id="game" class="hidden">
         <div id="question-container">
-            <h2 id="question"></h2>
+            <h2 id="question">Chargement...</h2>
             <div id="answers"></div>
             <div id="timer">Temps restant : <span id="time">10</span>s</div>
             <div id="progress-text"></div>
