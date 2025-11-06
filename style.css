@@ -1,155 +1,190 @@
-/* -------------------------
-   GENERAL
--------------------------- */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #00c6ff, #0072ff);
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #003366, #00b300);
+    color: white;
     margin: 0;
     padding: 0;
     text-align: center;
-    color: #fff;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
-h1, h2, h3 {
-    margin: 10px 0;
-}
-
-/* -------------------------
-   HEADER
--------------------------- */
+/* HEADER */
 header {
-    background-color: #004aad;
+    background: rgba(255, 255, 255, 0.1);
     padding: 20px 0;
-    color: #fff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+h1 {
+    font-size: 30px;
+    margin: 0;
+    color: #ffeb3b;
+    text-shadow: 0 0 10px #00000088;
 }
 
-/* -------------------------
-   ACCUEIL
--------------------------- */
-#home {
-    padding: 40px 20px;
+/* CARDS */
+.card {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 0.6s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-#player-selection,
-#player-names {
-    margin: 20px 0;
-}
-
-#player-names input {
+/* INPUT JOUEURS */
+.player-inputs input {
     display: block;
     margin: 10px auto;
-    padding: 10px 15px;
+    padding: 12px 15px;
+    width: 80%;
+    max-width: 350px;
+    border: 2px solid #00ff88;
+    border-radius: 10px;
     font-size: 16px;
-    border-radius: 8px;
-    border: none;
-    width: 200px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
-
-#player-count {
+select {
     padding: 10px;
-    font-size: 16px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    background: #00b300;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
 }
 
-#play-btn {
+/* BOUTONS */
+.btn-primary, .btn-secondary {
+    border: none;
     padding: 12px 25px;
+    border-radius: 30px;
     font-size: 18px;
-    color: #fff;
-    background-color: #ff9800;
-    border: none;
-    border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-
-#play-btn:hover {
-    background-color: #ffc107;
-}
-
-/* -------------------------
-   JEU
--------------------------- */
-#game, #turn-transition, #results {
-    padding: 40px 20px;
-}
-
-#question-container {
-    margin-bottom: 20px;
-}
-
-#answers button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 10px;
-    border: none;
-    width: 250px;
-    transition: 0.3s;
-    background-color: #2196f3;
-    color: #fff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-
-#answers button img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    border-radius: 5px;
-}
-
-#answers button:hover {
-    background-color: #1976d2;
-}
-
-#answers button.correct {
-    background-color: #4caf50 !important;
-}
-
-#answers button.wrong {
-    background-color: #f44336 !important;
-}
-
-#timer {
-    font-size: 18px;
     margin-top: 20px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+.btn-primary {
+    background: linear-gradient(90deg, #00b300, #0099ff);
+    color: white;
+    box-shadow: 0 0 10px #00ff88;
+}
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00ff88;
+}
+.btn-secondary {
+    background: linear-gradient(90deg, #555, #888);
+    color: white;
 }
 
-/* -------------------------
-   RÉSULTATS
--------------------------- */
-#results button {
-    padding: 12px 25px;
-    font-size: 18px;
-    color: #fff;
-    background-color: #ff9800;
-    border: none;
-    border-radius: 10px;
+/* QUESTIONS */
+.question {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+.answers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.answers-grid button {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid transparent;
+    border-radius: 15px;
     cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    padding: 10px;
+    transition: all 0.3s;
+}
+.answers-grid button:hover {
+    transform: scale(1.05);
+}
+.answers-grid img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+.answers-grid button.correct {
+    border-color: #00ff88;
+    box-shadow: 0 0 20px #00ff88;
+}
+.answers-grid button.wrong {
+    border-color: #ff4444;
+    box-shadow: 0 0 20px #ff4444;
 }
 
-#results button:hover {
-    background-color: #ffc107;
+/* TIMER */
+.timer {
+    font-size: 18px;
+    margin-top: 25px;
+    color: #ffeb3b;
+    font-weight: 600;
 }
 
-.hidden {
-    display: none;
+/* PROGRESSION */
+.progress-bar {
+    position: relative;
+    background: rgba(255,255,255,0.2);
+    border-radius: 15px;
+    height: 12px;
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
 }
-
-/* -------------------------
-   PROGRESS & TEXT
--------------------------- */
+.progress-bar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--progress, 0%);
+    background: linear-gradient(90deg, #00ff88, #00b300);
+    border-radius: 15px;
+    transition: width 0.4s ease-in-out;
+}
 #progress-text {
-    margin-top: 10px;
-    font-size: 16px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #ffeb3b;
 }
+
+/* TRANSITION */
+#turn-transition {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffeb3b;
+}
+
+/* RÉSULTATS */
+.score-summary p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+#winner {
+    color: #ffeb3b;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size: 14px;
+    color: #fff;
+}
+.hidden { display: none; }
