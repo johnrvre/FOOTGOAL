@@ -1,35 +1,46 @@
-/* ---- GLOBAL ---- */
+/* -------------------------
+   🌍 STYLE GÉNÉRAL
+-------------------------- */
 body {
     font-family: 'Poppins', Arial, sans-serif;
-    background: linear-gradient(135deg, #1e1f26, #2b5876);
+    background: linear-gradient(135deg, #003366, #00b300);
     color: white;
     margin: 0;
     padding: 0;
     text-align: center;
     min-height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
+/* -------------------------
+   🏟️ EN-TÊTE
+-------------------------- */
 header {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px 0;
     backdrop-filter: blur(6px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 30px;
     margin: 0;
-    color: #ffca28;
+    color: #ffeb3b; /* Jaune ballon */
+    text-shadow: 0 0 10px #00000088;
 }
 
-/* ---- MAIN CARD ---- */
+/* -------------------------
+   🎴 CARTES PRINCIPALES
+-------------------------- */
 .card {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.12);
     border-radius: 20px;
     padding: 30px;
     width: 90%;
     max-width: 600px;
     margin: 50px auto;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
     animation: fadeIn 0.6s ease-in-out;
 }
 
@@ -38,25 +49,32 @@ h1 {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---- INPUTS ---- */
+/* -------------------------
+   🧍 ENTRÉE JOUEURS
+-------------------------- */
 .player-inputs input {
     display: block;
     margin: 10px auto;
     padding: 12px 15px;
     width: 80%;
     max-width: 350px;
-    border: none;
+    border: 2px solid #00ff88;
     border-radius: 10px;
     font-size: 16px;
     text-align: center;
     outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
 .player-inputs input:focus {
-    border: 2px solid #ffca28;
+    border-color: #ffeb3b;
+    box-shadow: 0 0 10px #ffeb3b;
 }
 
-/* ---- BUTTONS ---- */
+/* -------------------------
+   🟢 BOUTONS MODERNES
+-------------------------- */
 .btn-primary, .btn-secondary {
     border: none;
     padding: 12px 25px;
@@ -65,35 +83,38 @@ h1 {
     cursor: pointer;
     margin-top: 20px;
     transition: all 0.3s ease;
+    font-weight: 600;
 }
 
 .btn-primary {
-    background-color: #ffca28;
-    color: #1e1f26;
-    font-weight: bold;
+    background: linear-gradient(90deg, #00b300, #0099ff);
+    color: white;
+    box-shadow: 0 0 10px #00ff88;
 }
 
 .btn-primary:hover {
-    background-color: #ffd54f;
     transform: scale(1.05);
+    box-shadow: 0 0 20px #00ff88;
 }
 
 .btn-secondary {
-    background-color: #4db6ac;
+    background: linear-gradient(90deg, #555, #888);
     color: white;
 }
 
 .btn-secondary:hover {
-    background-color: #80cbc4;
+    background: linear-gradient(90deg, #777, #aaa);
 }
 
-/* ---- QUESTIONS ---- */
+/* -------------------------
+   ⚽ QUESTION & RÉPONSES
+-------------------------- */
 .question {
     font-size: 22px;
     margin-bottom: 25px;
+    color: #ffffff;
 }
 
-/* ---- ANSWERS ---- */
 .answers-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -101,29 +122,98 @@ h1 {
 }
 
 .answers-grid button {
-    background: #3949ab;
+    background: linear-gradient(135deg, #1a237e, #3949ab);
     color: white;
     border: none;
     padding: 15px 10px;
     border-radius: 15px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: 500;
     transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .answers-grid button:hover {
-    background: #5c6bc0;
+    background: linear-gradient(135deg, #3949ab, #5c6bc0);
     transform: scale(1.05);
 }
 
-/* ---- TIMER ---- */
+/* ---- Animation des réponses ---- */
+.answers-grid button.correct {
+    background: linear-gradient(135deg, #00e676, #00c853) !important;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00e676;
+}
+
+.answers-grid button.wrong {
+    background: linear-gradient(135deg, #e53935, #b71c1c) !important;
+    transform: scale(0.95);
+    box-shadow: 0 0 20px #e53935;
+}
+
+/* -------------------------
+   ⏱️ TIMER
+-------------------------- */
 .timer {
     font-size: 18px;
     margin-top: 25px;
-    color: #ffca28;
+    color: #ffeb3b;
+    font-weight: 600;
 }
 
-/* ---- FOOTER ---- */
+/* -------------------------
+   📊 BARRE DE PROGRESSION
+-------------------------- */
+.progress-bar {
+    position: relative;
+    background: rgba(255,255,255,0.2);
+    border-radius: 15px;
+    height: 12px;
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress-bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #00ff88, #00b300);
+    transition: width 0.5s ease;
+    border-radius: 15px;
+}
+
+.progress-bar[data-progress]::before {
+    width: attr(data-progress %);
+}
+
+#progress-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #ffeb3b;
+}
+
+/* -------------------------
+   🏁 RÉSULTATS
+-------------------------- */
+.score-summary {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #00ffcc;
+}
+
+#winner {
+    color: #ffeb3b;
+    font-weight: bold;
+}
+
+/* -------------------------
+   ⚽ PIED DE PAGE
+-------------------------- */
 footer {
     background: rgba(0, 0, 0, 0.3);
     padding: 15px;
@@ -131,30 +221,13 @@ footer {
     width: 100%;
     bottom: 0;
     font-size: 14px;
+    color: #fff;
+    letter-spacing: 0.5px;
 }
 
+/* -------------------------
+   UTILITAIRES
+-------------------------- */
 .hidden {
     display: none;
-}
-/* ---- Animation des réponses ---- */
-.answers-grid button.correct {
-    background-color: #4caf50 !important; /* Vert */
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #4caf50;
-}
-
-.answers-grid button.wrong {
-    background-color: #e53935 !important; /* Rouge */
-    transform: scale(0.95);
-    box-shadow: 0 0 15px #e53935;
-}
-
-/* Animation douce */
-.answers-grid button {
-    transition: all 0.3s ease;
-}
-
-/* Petit effet de clic */
-.answers-grid button:active {
-    transform: scale(0.97);
 }
