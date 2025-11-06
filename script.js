@@ -22,6 +22,19 @@ let timeLeft = 10;
 let players = [];
 let responses = [];
 
+// 🎮 Lancement depuis l'écran d'accueil
+document.getElementById("play-btn").addEventListener("click", () => {
+    const p1 = document.getElementById("player1").value.trim() || "Joueur 1";
+    const p2 = document.getElementById("player2").value.trim() || "Joueur 2";
+    players = [p1, p2];
+
+    // cacher l'accueil et afficher le jeu
+    document.getElementById("home").classList.add("hidden");
+    document.getElementById("game").classList.remove("hidden");
+
+    startGame();
+});
+
 function startGame() {
     document.getElementById("results").classList.add("hidden");
     document.getElementById("game").classList.remove("hidden");
@@ -61,10 +74,9 @@ function startTimer() {
 function submitAnswer(index) {
     clearInterval(timer);
     const correctIndex = questions[currentQuestion].correct;
-    const winnerName = index === correctIndex ? "Joueur 1" : "Joueur 2";
+    const winnerName = index === correctIndex ? players[0] : players[1];
     document.getElementById("winner").textContent = winnerName;
     document.getElementById("game").classList.add("hidden");
     document.getElementById("results").classList.remove("hidden");
 }
 
-startGame();
