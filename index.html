@@ -3,64 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Foot entre amis ⚽</title>
+    <title>Quizz Foot</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>⚽ Quiz Football - Défi entre amis</h1>
+        <h1>⚽ Quizz Foot ⚽</h1>
     </header>
 
-    <main>
-        <!-- 🏠 ACCUEIL -->
-        <section id="home" class="card">
-            <h2>Bienvenue dans le Quiz Foot !</h2>
-            <p>Sélectionne le nombre de joueurs :</p>
+    <!-- PAGE D'ACCUEIL -->
+    <main id="home">
+        <h2>Bienvenue !</h2>
+        <label for="player-count">Nombre de joueurs :</label>
+        <select id="player-count">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
 
-            <select id="player-count">
-                <option value="2">2 joueurs</option>
-                <option value="3">3 joueurs</option>
-                <option value="4">4 joueurs</option>
-            </select>
+        <div id="player-names">
+            <input type="text" id="player0" placeholder="Nom Joueur 1">
+            <input type="text" id="player1" placeholder="Nom Joueur 2">
+        </div>
 
-            <div id="player-names" class="player-inputs"></div>
-
-            <button id="play-btn" class="btn-primary">🎮 Jouer</button>
-        </section>
-
-        <!-- ⚽ TRANSITION ENTRE JOUEURS -->
-        <section id="turn-transition" class="card hidden">
-            <h2 id="next-player-text">C’est au tour de ...</h2>
-        </section>
-
-        <!-- 🕹️ JEU -->
-        <section id="game" class="card hidden">
-            <div id="progress" class="progress-bar">
-                <span id="progress-text">Question 1 / 10</span>
-            </div>
-
-            <h2 id="question" class="question">Chargement...</h2>
-
-            <div id="answers" class="answers-grid"></div>
-
-            <div id="timer" class="timer">⏱️ Temps restant : <span id="time">10</span>s</div>
-        </section>
-
-        <!-- 🏁 RÉSULTATS -->
-        <section id="results" class="card hidden">
-            <h2>Fin du quiz !</h2>
-            <p>🏆 <span id="winner">?</span></p>
-
-            <div class="score-summary" id="score-summary"></div>
-
-            <button onclick="startGame()" class="btn-primary">🔁 Rejouer</button>
-            <button onclick="goHome()" class="btn-secondary">🏠 Retour à l’accueil</button>
-        </section>
+        <button id="play-btn">Jouer</button>
     </main>
 
-    <footer>
-        <p>⚽ Portfolio - Jeu Quiz Foot entre amis</p>
-    </footer>
+    <!-- TRANSITION JOUEUR -->
+    <main id="turn-transition" class="hidden">
+        <h2 id="next-player-text"></h2>
+    </main>
+
+    <!-- PAGE DE JEU -->
+    <main id="game" class="hidden">
+        <div id="question-container">
+            <h2 id="question"></h2>
+            <div id="answers"></div>
+            <div id="timer">Temps restant : <span id="time">10</span>s</div>
+            <div id="progress-text"></div>
+        </div>
+    </main>
+
+    <!-- PAGE DES RÉSULTATS -->
+    <main id="results" class="hidden">
+        <h2>🎉 Résultat 🎉</h2>
+        <h3>Gagnant : <span id="winner"></span></h3>
+        <div id="score-summary"></div>
+        <button onclick="goHome()">Retour à l'accueil</button>
+    </main>
 
     <script src="script.js"></script>
 </body>
