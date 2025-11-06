@@ -22,16 +22,13 @@ let timeLeft = 10;
 let players = [];
 let responses = [];
 
-// 🎮 Lancement depuis l'écran d'accueil
 document.getElementById("play-btn").addEventListener("click", () => {
     const p1 = document.getElementById("player1").value.trim() || "Joueur 1";
     const p2 = document.getElementById("player2").value.trim() || "Joueur 2";
     players = [p1, p2];
 
-    // cacher l'accueil et afficher le jeu
     document.getElementById("home").classList.add("hidden");
     document.getElementById("game").classList.remove("hidden");
-
     startGame();
 });
 
@@ -80,3 +77,7 @@ function submitAnswer(index) {
     document.getElementById("results").classList.remove("hidden");
 }
 
+function goHome() {
+    document.getElementById("results").classList.add("hidden");
+    document.getElementById("home").classList.remove("hidden");
+}
