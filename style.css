@@ -1,32 +1,138 @@
-/* Écran d'accueil */
-#home {
-    margin-top: 50px;
+/* ---- GLOBAL ---- */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1f26, #2b5876);
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    min-height: 100vh;
 }
 
-.player-inputs {
-    margin: 20px 0;
+header {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    backdrop-filter: blur(6px);
 }
 
+h1 {
+    font-size: 28px;
+    margin: 0;
+    color: #ffca28;
+}
+
+/* ---- MAIN CARD ---- */
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- INPUTS ---- */
 .player-inputs input {
     display: block;
     margin: 10px auto;
-    padding: 10px;
-    width: 60%;
-    max-width: 300px;
+    padding: 12px 15px;
+    width: 80%;
+    max-width: 350px;
+    border: none;
+    border-radius: 10px;
     font-size: 16px;
+    text-align: center;
+    outline: none;
 }
 
-#play-btn {
-    background-color: #007bff;
-    color: white;
+.player-inputs input:focus {
+    border: 2px solid #ffca28;
+}
+
+/* ---- BUTTONS ---- */
+.btn-primary, .btn-secondary {
     border: none;
     padding: 12px 25px;
+    border-radius: 30px;
     font-size: 18px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
+    margin-top: 20px;
+    transition: all 0.3s ease;
 }
 
-#play-btn:hover {
-    background-color: #0056b3;
+.btn-primary {
+    background-color: #ffca28;
+    color: #1e1f26;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #ffd54f;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: #4db6ac;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #80cbc4;
+}
+
+/* ---- QUESTIONS ---- */
+.question {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+/* ---- ANSWERS ---- */
+.answers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.answers-grid button {
+    background: #3949ab;
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.answers-grid button:hover {
+    background: #5c6bc0;
+    transform: scale(1.05);
+}
+
+/* ---- TIMER ---- */
+.timer {
+    font-size: 18px;
+    margin-top: 25px;
+    color: #ffca28;
+}
+
+/* ---- FOOTER ---- */
+footer {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
 }
