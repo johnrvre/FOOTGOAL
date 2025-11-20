@@ -1,65 +1,52 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Foot entre amis ⚽</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>⚽ Quiz Football - Défi entre amis</h1>
-    </header>
+<header>
+    <h1>⚽ Quiz Football - Défi entre amis</h1>
+</header>
 
-    <main>
-        <!-- 🏠 ACCUEIL -->
-        <section id="home" class="card">
-            <h2>Bienvenue dans le Quiz Foot !</h2>
-            <p>Sélectionne le nombre de joueurs :</p>
+<main>
+    <!-- ACCUEIL -->
+    <section id="home" class="card">
+        <h2>Bienvenue dans le Quiz Foot !</h2>
+        <p>Sélectionne le nombre de joueurs :</p>
 
-            <select id="player-count">
-                <option value="2">2 joueurs</option>
-                <option value="3">3 joueurs</option>
-                <option value="4">4 joueurs</option>
-            </select>
+        <select id="player-count">
+            <option value="2">2 joueurs</option>
+            <option value="3">3 joueurs</option>
+            <option value="4">4 joueurs</option>
+        </select>
 
-            <div id="player-names" class="player-inputs"></div>
+        <div id="player-names" class="player-inputs"></div>
 
-            <button id="play-btn" class="btn-primary">🎮 Jouer</button>
-        </section>
+        <button id="play-btn" class="btn-primary">🎮 Jouer</button>
+    </section>
 
-        <!-- ⚽ TRANSITION ENTRE JOUEURS -->
-        <section id="turn-transition" class="card hidden">
-            <h2 id="next-player-text">C’est au tour de ...</h2>
-        </section>
+    <!-- TRANSITION JOUEUR -->
+    <section id="turn-transition" class="card hidden">
+        <h2 id="next-player-text">C’est au tour de ...</h2>
+    </section>
 
-        <!-- 🕹️ JEU -->
-        <section id="game" class="card hidden">
-            <div id="progress-text"></div>
+    <!-- JEU -->
+    <section id="game" class="card hidden">
+        <div id="progress" class="progress-bar">
+            <span id="progress-text">Question 1 / 10</span>
+        </div>
 
-            <h2 id="question" class="question">Chargement...</h2>
+        <h2 id="question" class="question">Chargement...</h2>
+        <div id="answers" class="answers-grid"></div>
+        <div id="timer" class="timer">⏱️ Temps restant : <span id="time">10</span>s</div>
+    </section>
 
-            <div id="answers" class="answers-grid"></div>
+    <!-- RÉSULTATS -->
+    <section id="results" class="card hidden">
+        <h2>Fin du quiz !</h2>
+        <p>🏆 <span id="winner">?</span></p>
+        <div class="score-summary" id="score-summary"></div>
+        <button onclick="startGame()" class="btn-primary">🔁 Rejouer</button>
+        <button onclick="goHome()" class="btn-secondary">🏠 Retour à l’accueil</button>
+    </section>
+</main>
 
-            <div id="timer" class="timer">⏱️ Temps restant : <span id="time">10</span>s</div>
-        </section>
+<footer>
+    <p>⚽ Portfolio - Jeu Quiz Foot entre amis</p>
+</footer>
 
-        <!-- 🏁 RÉSULTATS -->
-        <section id="results" class="card hidden">
-            <h2>Fin du quiz !</h2>
-            <p>🏆 <span id="winner">?</span></p>
-
-            <div class="score-summary" id="score-summary"></div>
-
-            <button onclick="startGame()" class="btn-primary">🔁 Rejouer</button>
-            <button onclick="goHome()" class="btn-secondary">🏠 Retour à l’accueil</button>
-        </section>
-    </main>
-
-    <footer>
-        <p>⚽ Portfolio - Jeu Quiz Foot entre amis</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<script src="script.js"></script>
