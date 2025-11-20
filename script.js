@@ -1,5 +1,27 @@
 // -------------------------
-// ⚽ QUESTIONS AVEC IMAGES
+// 🎯 VARIABLES GLOBALES
+// -------------------------
+let players = [];
+let scores = [];
+let currentPlayerIndex = 0;
+let currentQuestion = 0;
+let timeLeft = 10;
+let timer;
+let difficulty = "easy";
+let jokerUsed = [];
+
+// -------------------------
+// 🎵 SONS
+// -------------------------
+const sounds = {
+    correct: new Audio("https://freesound.org/data/previews/276/276020_5121236-lq.mp3"),
+    wrong: new Audio("https://freesound.org/data/previews/331/331912_3248244-lq.mp3"),
+    timeout: new Audio("https://freesound.org/data/previews/353/353579_5121236-lq.mp3"),
+    click: new Audio("https://freesound.org/data/previews/331/331912_3248244-lq.mp3")
+};
+
+// -------------------------
+// 🏆 QUESTIONS
 // -------------------------
 const questions = [
     {
@@ -51,71 +73,11 @@ const questions = [
             { img: "https://flagcdn.com/w320/esp.png", text: "Espagne" }
         ],
         correct: 0
-    },
-    {
-        question: "Quel joueur a remporté le Ballon d'Or 2021 ?",
-        answers: [
-            { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-            { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-            { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-            { img: "https://upload.wikimedia.org/wikipedia/commons/0/05/Lionel_Messi_2018.jpg", text: "Messi" }
-        ],
-        correct: 3
-    },
-    {
-        question: "Quel club est surnommé 'Les Blaugranas' ?",
-        answers: [
-            { img: "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg", text: "FC Barcelone" },
-            { img: "https://upload.wikimedia.org/wikipedia/en/0/01/Real_Madrid_CF.svg", text: "Real Madrid" },
-            { img: "https://upload.wikimedia.org/wikipedia/en/f/fc/Bayern_Munich_logo.svg", text: "Bayern Munich" },
-            { img: "https://upload.wikimedia.org/wikipedia/en/c/c2/Juventus_FC_2017_logo.svg", text: "Juventus" }
-        ],
-        correct: 0
-    },
-    {
-        question: "Quel club est basé à Manchester et joue en bleu ?",
-        answers: [
-            { img: "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg", text: "Man City" },
-            { img: "https://upload.wikimedia.org/wikipedia/en/7/7d/Manchester_United_FC_crest.svg", text: "Man United" },
-            { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" },
-            { img: "https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg", text: "PSG" }
-        ],
-        correct: 0
-    },
-    {
-        question: "Quel joueur est surnommé 'La Pulga' ?",
-        answers: [
-            { img: "https://upload.wikimedia.org/wikipedia/commons/0/05/Lionel_Messi_2018.jpg", text: "Messi" },
-            { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-            { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-            { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" }
-        ],
-        correct: 0
-    },
-    {
-        question: "Quel pays a remporté la Coupe du Monde 2014 ?",
-        answers: [
-            { img: "https://flagcdn.com/w320/de.png", text: "Allemagne" },
-            { img: "https://flagcdn.com/w320/ar.png", text: "Argentine" },
-            { img: "https://flagcdn.com/w320/br.png", text: "Brésil" },
-            { img: "https://flagcdn.com/w320/fr.png", text: "France" }
-        ],
-        correct: 0
     }
 ];
 
 // -------------------------
-// VARIABLES GLOBALES
-// -------------------------
-let players = [];
-let scores = [];
-let currentPlayerIndex = 0;
-let currentQuestion = 0;
-let timer;
-let timeLeft = 10;
-
-// -------------------------
-// GÉRER L'AFFICHAGE DES NOMS DE JOUEURS
+// 🔹 GÉRER L'AFFICHAGE DES NOMS DE JOUEURS
 // -------------------------
 const playerCountSelect = document.getElementById("player-count");
 const playerNamesDiv = document.getElementById("player-names");
@@ -133,30 +95,36 @@ playerCountSelect.addEventListener("change", () => {
 });
 
 // -------------------------
-// BOUTON LANCER LE JEU
+// 🔹 BOUTON LANCER LE JEU
 // -------------------------
 document.getElementById("play-btn").addEventListener("click", () => {
     const count = parseInt(playerCountSelect.value);
     players = [];
     scores = Array(count).fill(0);
+    jokerUsed = Array(count).fill(false);
+    difficulty = document.getElementById("difficulty").value;
+
     for (let i = 0; i < count; i++) {
         const name = document.getElementById(`player${i}`).value.trim() || `Joueur ${i + 1}`;
         players.push(name);
     }
+
     currentPlayerIndex = 0;
     currentQuestion = 0;
+
     document.getElementById("home").classList.add("hidden");
     showTurnTransition();
 });
 
 // -------------------------
-// AFFICHER TRANSITION JOUEUR
+// 🔹 TRANSITION JOUEUR
 // -------------------------
 function showTurnTransition() {
     document.getElementById("turn-transition").classList.remove("hidden");
     document.getElementById("game").classList.add("hidden");
     document.getElementById("results").classList.add("hidden");
     document.getElementById("next-player-text").textContent = `C’est au tour de ${players[currentPlayerIndex]} !`;
+
     setTimeout(() => {
         document.getElementById("turn-transition").classList.add("hidden");
         startGame();
@@ -164,73 +132,91 @@ function showTurnTransition() {
 }
 
 // -------------------------
-// LANCER LE JEU
+// 🔹 LANCER LE JEU
 // -------------------------
 function startGame() {
     document.getElementById("game").classList.remove("hidden");
+    document.getElementById("current-player").textContent = players[currentPlayerIndex];
+    updateProgress();
     showQuestion();
     startTimer();
+    updateJokerButton();
 }
 
 // -------------------------
-// AFFICHER LA QUESTION
+// 🔹 AFFICHER QUESTION
 // -------------------------
 function showQuestion() {
     const q = questions[currentQuestion];
     document.getElementById("question").textContent = q.question;
-    document.getElementById("progress-text").textContent = `Question ${currentQuestion + 1} / ${questions.length}`;
 
     const answersDiv = document.getElementById("answers");
     answersDiv.innerHTML = "";
-    q.answers.forEach((a, index) => {
+
+    // Mélanger réponses
+    let shuffledAnswers = q.answers.map((a, i) => ({...a, index: i}));
+    shuffledAnswers.sort(() => Math.random() - 0.5);
+
+    shuffledAnswers.forEach(a => {
         const btn = document.createElement("button");
         btn.classList.add("answer-btn");
         btn.innerHTML = `<img src="${a.img}" alt="${a.text}"><span>${a.text}</span>`;
-        btn.onclick = () => submitAnswer(index);
+        btn.onclick = () => submitAnswer(a.index);
         answersDiv.appendChild(btn);
     });
 }
 
 // -------------------------
-// TIMER
+// 🔹 TIMER
 // -------------------------
 function startTimer() {
-    timeLeft = 10;
+    clearInterval(timer);
+    if (difficulty === "easy") timeLeft = 15;
+    if (difficulty === "medium") timeLeft = 10;
+    if (difficulty === "hard") timeLeft = 7 + Math.floor(Math.random() * 4); // aléatoire 7-10s
+
     document.getElementById("time").textContent = timeLeft;
+
     timer = setInterval(() => {
         timeLeft--;
         document.getElementById("time").textContent = timeLeft;
         if (timeLeft <= 0) {
             clearInterval(timer);
-            submitAnswer(-1); // pas de réponse
+            sounds.timeout.play();
+            submitAnswer(-1);
         }
     }, 1000);
 }
 
 // -------------------------
-// SUBMIT RÉPONSE
+// 🔹 SUBMIT RÉPONSE
 // -------------------------
 function submitAnswer(index) {
     clearInterval(timer);
+
     const q = questions[currentQuestion];
     const buttons = document.querySelectorAll("#answers button");
+
     buttons.forEach(b => b.disabled = true);
 
-    // Marquer correct/wrong
     buttons.forEach((btn, i) => {
         if (i === q.correct) btn.classList.add("correct");
         else if (i === index) btn.classList.add("wrong");
     });
 
-    // Mise à jour score
-    if (index === q.correct) scores[currentPlayerIndex]++;
+    if (index === q.correct) {
+        scores[currentPlayerIndex]++;
+        sounds.correct.play();
+    } else {
+        if (index !== -1) sounds.wrong.play();
+    }
 
     setTimeout(() => {
         currentQuestion++;
         if (currentQuestion >= questions.length) {
-            // Prochain joueur ou fin
             currentPlayerIndex++;
             currentQuestion = 0;
+
             if (currentPlayerIndex >= players.length) {
                 showResults();
             } else {
@@ -244,18 +230,17 @@ function submitAnswer(index) {
 }
 
 // -------------------------
-// AFFICHER RÉSULTATS
+// 🔹 AFFICHER RÉSULTATS
 // -------------------------
 function showResults() {
     document.getElementById("game").classList.add("hidden");
     document.getElementById("results").classList.remove("hidden");
 
-    // Déterminer gagnant(s)
     const maxScore = Math.max(...scores);
     const winners = players.filter((p, i) => scores[i] === maxScore);
-    document.getElementById("winner").textContent = winners.join(" & ") + ` avec ${maxScore} points !`;
 
-    // Afficher résumé
+    document.getElementById("winner").textContent = winners.join(" & ") + ` avec ${maxScore} pts !`;
+
     const summary = document.getElementById("score-summary");
     summary.innerHTML = "";
     players.forEach((p, i) => {
@@ -266,7 +251,63 @@ function showResults() {
 }
 
 // -------------------------
-// REVENIR À L'ACCUEIL
+// 🔹 REVENIR À L'ACCUEIL
+// -------------------------
+document.getElementById("home-btn").addEventListener("click", () => {
+    document.getElementById("results").classList.add("hidden");
+    document.getElementById("home").classList.remove("hidden");
+});
+
+// -------------------------
+// 🔹 REJOUER
+// -------------------------
+document.getElementById("restart-btn").addEventListener("click", () => {
+    currentPlayerIndex = 0;
+    currentQuestion = 0;
+    scores = Array(players.length).fill(0);
+    jokerUsed = Array(players.length).fill(false);
+    showTurnTransition();
+});
+
+// -------------------------
+// 🔹 JOKER 50/50
+// -------------------------
+const jokerBtn = document.getElementById("joker-btn");
+jokerBtn.addEventListener("click", () => {
+    if (jokerUsed[currentPlayerIndex]) return;
+    const q = questions[currentQuestion];
+    const buttons = document.querySelectorAll("#answers button");
+
+    let incorrectIndices = [];
+    buttons.forEach((b, i) => {
+        if (i !== q.correct) incorrectIndices.push(i);
+    });
+
+    // Supprimer 2 mauvaises réponses
+    incorrectIndices.sort(() => 0.5 - Math.random());
+    buttons[incorrectIndices[0]].style.visibility = "hidden";
+    buttons[incorrectIndices[1]].style.visibility = "hidden";
+
+    jokerUsed[currentPlayerIndex] = true;
+    updateJokerButton();
+});
+
+function updateJokerButton() {
+    if (jokerUsed[currentPlayerIndex]) {
+        jokerBtn.classList.add("used");
+    } else {
+        jokerBtn.classList.remove("used");
+    }
+}
+
+// -------------------------
+// 🔹 PROGRESSION
+// -------------------------
+function updateProgress() {
+    const progressPercent = ((currentQuestion) / questions.length) * 100;
+    document.getElementById("progress-fill").style.width = `${progressPercent}%`;
+}
+
 // -------------------------
 function goHome() {
     document.getElementById("results").classList.add("hidden");
