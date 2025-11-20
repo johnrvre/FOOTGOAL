@@ -1,27 +1,15 @@
 // -------------------------
-// 🎯 VARIABLES GLOBALES
+// VARIABLES GLOBALES
 // -------------------------
 let players = [];
 let scores = [];
 let currentPlayerIndex = 0;
 let currentQuestion = 0;
-let timeLeft = 10;
 let timer;
-let difficulty = "easy";
-let jokerUsed = [];
+let timeLeft = 10;
 
 // -------------------------
-// 🎵 SONS
-// -------------------------
-const sounds = {
-    correct: new Audio("https://freesound.org/data/previews/276/276020_5121236-lq.mp3"),
-    wrong: new Audio("https://freesound.org/data/previews/331/331912_3248244-lq.mp3"),
-    timeout: new Audio("https://freesound.org/data/previews/353/353579_5121236-lq.mp3"),
-    click: new Audio("https://freesound.org/data/previews/331/331912_3248244-lq.mp3")
-};
-
-// -------------------------
-// 🏆 QUESTIONS
+// QUESTIONS
 // -------------------------
 const questions = [
     {
@@ -63,21 +51,11 @@ const questions = [
             { img: "https://upload.wikimedia.org/wikipedia/en/7/7d/Manchester_United_FC_crest.svg", text: "Manchester United" }
         ],
         correct: 3
-    },
-    {
-        question: "Quel pays a remporté l’Euro 2020 ?",
-        answers: [
-            { img: "https://flagcdn.com/w320/it.png", text: "Italie" },
-            { img: "https://flagcdn.com/w320/eng.png", text: "Angleterre" },
-            { img: "https://flagcdn.com/w320/fr.png", text: "France" },
-            { img: "https://flagcdn.com/w320/esp.png", text: "Espagne" }
-        ],
-        correct: 0
     }
 ];
 
 // -------------------------
-// 🔹 GÉRER L'AFFICHAGE DES NOMS DE JOUEURS
+// GÉRER LES NOMS DE JOUEURS
 // -------------------------
 const playerCountSelect = document.getElementById("player-count");
 const playerNamesDiv = document.getElementById("player-names");
@@ -95,14 +73,12 @@ playerCountSelect.addEventListener("change", () => {
 });
 
 // -------------------------
-// 🔹 BOUTON LANCER LE JEU
+// BOUTON JOUER
 // -------------------------
 document.getElementById("play-btn").addEventListener("click", () => {
     const count = parseInt(playerCountSelect.value);
     players = [];
     scores = Array(count).fill(0);
-    jokerUsed = Array(count).fill(false);
-    difficulty = document.getElementById("difficulty").value;
 
     for (let i = 0; i < count; i++) {
         const name = document.getElementById(`player${i}`).value.trim() || `Joueur ${i + 1}`;
@@ -117,12 +93,11 @@ document.getElementById("play-btn").addEventListener("click", () => {
 });
 
 // -------------------------
-// 🔹 TRANSITION JOUEUR
+// TRANSITION ENTRE JOUEURS
 // -------------------------
 function showTurnTransition() {
     document.getElementById("turn-transition").classList.remove("hidden");
     document.getElementById("game").classList.add("hidden");
-    document.getElementById("results").classList.add("hidden");
     document.getElementById("next-player-text").textContent = `C’est au tour de ${players[currentPlayerIndex]} !`;
 
     setTimeout(() => {
@@ -132,19 +107,16 @@ function showTurnTransition() {
 }
 
 // -------------------------
-// 🔹 LANCER LE JEU
+// DÉBUT DU JEU
 // -------------------------
 function startGame() {
     document.getElementById("game").classList.remove("hidden");
-    document.getElementById("current-player").textContent = players[currentPlayerIndex];
-    updateProgress();
     showQuestion();
     startTimer();
-    updateJokerButton();
 }
 
 // -------------------------
-// 🔹 AFFICHER QUESTION
+// AFFICHER QUESTION
 // -------------------------
 function showQuestion() {
     const q = questions[currentQuestion];
@@ -153,70 +125,58 @@ function showQuestion() {
     const answersDiv = document.getElementById("answers");
     answersDiv.innerHTML = "";
 
-    // Mélanger réponses
-    let shuffledAnswers = q.answers.map((a, i) => ({...a, index: i}));
-    shuffledAnswers.sort(() => Math.random() - 0.5);
-
-    shuffledAnswers.forEach(a => {
+    q.answers.forEach((a, index) => {
         const btn = document.createElement("button");
         btn.classList.add("answer-btn");
         btn.innerHTML = `<img src="${a.img}" alt="${a.text}"><span>${a.text}</span>`;
-        btn.onclick = () => submitAnswer(a.index);
+        btn.onclick = () => submitAnswer(index);
         answersDiv.appendChild(btn);
     });
+
+    document.getElementById("progress-text").textContent = `Question ${currentQuestion + 1} / ${questions.length}`;
 }
 
 // -------------------------
-// 🔹 TIMER
+// TIMER
 // -------------------------
 function startTimer() {
-    clearInterval(timer);
-    if (difficulty === "easy") timeLeft = 15;
-    if (difficulty === "medium") timeLeft = 10;
-    if (difficulty === "hard") timeLeft = 7 + Math.floor(Math.random() * 4); // aléatoire 7-10s
-
+    timeLeft = 10;
     document.getElementById("time").textContent = timeLeft;
 
+    clearInterval(timer);
     timer = setInterval(() => {
         timeLeft--;
         document.getElementById("time").textContent = timeLeft;
         if (timeLeft <= 0) {
             clearInterval(timer);
-            sounds.timeout.play();
             submitAnswer(-1);
         }
     }, 1000);
 }
 
 // -------------------------
-// 🔹 SUBMIT RÉPONSE
+// SOUMETTRE RÉPONSE
 // -------------------------
 function submitAnswer(index) {
     clearInterval(timer);
 
     const q = questions[currentQuestion];
     const buttons = document.querySelectorAll("#answers button");
-
     buttons.forEach(b => b.disabled = true);
 
+    // Marquer correct/wrong
     buttons.forEach((btn, i) => {
         if (i === q.correct) btn.classList.add("correct");
         else if (i === index) btn.classList.add("wrong");
     });
 
-    if (index === q.correct) {
-        scores[currentPlayerIndex]++;
-        sounds.correct.play();
-    } else {
-        if (index !== -1) sounds.wrong.play();
-    }
+    if (index === q.correct) scores[currentPlayerIndex]++;
 
     setTimeout(() => {
         currentQuestion++;
         if (currentQuestion >= questions.length) {
             currentPlayerIndex++;
             currentQuestion = 0;
-
             if (currentPlayerIndex >= players.length) {
                 showResults();
             } else {
@@ -230,7 +190,7 @@ function submitAnswer(index) {
 }
 
 // -------------------------
-// 🔹 AFFICHER RÉSULTATS
+// AFFICHER RÉSULTATS
 // -------------------------
 function showResults() {
     document.getElementById("game").classList.add("hidden");
@@ -239,7 +199,7 @@ function showResults() {
     const maxScore = Math.max(...scores);
     const winners = players.filter((p, i) => scores[i] === maxScore);
 
-    document.getElementById("winner").textContent = winners.join(" & ") + ` avec ${maxScore} pts !`;
+    document.getElementById("winner").textContent = winners.join(" & ") + ` avec ${maxScore} points !`;
 
     const summary = document.getElementById("score-summary");
     summary.innerHTML = "";
@@ -251,63 +211,7 @@ function showResults() {
 }
 
 // -------------------------
-// 🔹 REVENIR À L'ACCUEIL
-// -------------------------
-document.getElementById("home-btn").addEventListener("click", () => {
-    document.getElementById("results").classList.add("hidden");
-    document.getElementById("home").classList.remove("hidden");
-});
-
-// -------------------------
-// 🔹 REJOUER
-// -------------------------
-document.getElementById("restart-btn").addEventListener("click", () => {
-    currentPlayerIndex = 0;
-    currentQuestion = 0;
-    scores = Array(players.length).fill(0);
-    jokerUsed = Array(players.length).fill(false);
-    showTurnTransition();
-});
-
-// -------------------------
-// 🔹 JOKER 50/50
-// -------------------------
-const jokerBtn = document.getElementById("joker-btn");
-jokerBtn.addEventListener("click", () => {
-    if (jokerUsed[currentPlayerIndex]) return;
-    const q = questions[currentQuestion];
-    const buttons = document.querySelectorAll("#answers button");
-
-    let incorrectIndices = [];
-    buttons.forEach((b, i) => {
-        if (i !== q.correct) incorrectIndices.push(i);
-    });
-
-    // Supprimer 2 mauvaises réponses
-    incorrectIndices.sort(() => 0.5 - Math.random());
-    buttons[incorrectIndices[0]].style.visibility = "hidden";
-    buttons[incorrectIndices[1]].style.visibility = "hidden";
-
-    jokerUsed[currentPlayerIndex] = true;
-    updateJokerButton();
-});
-
-function updateJokerButton() {
-    if (jokerUsed[currentPlayerIndex]) {
-        jokerBtn.classList.add("used");
-    } else {
-        jokerBtn.classList.remove("used");
-    }
-}
-
-// -------------------------
-// 🔹 PROGRESSION
-// -------------------------
-function updateProgress() {
-    const progressPercent = ((currentQuestion) / questions.length) * 100;
-    document.getElementById("progress-fill").style.width = `${progressPercent}%`;
-}
-
+// REVENIR À L'ACCUEIL
 // -------------------------
 function goHome() {
     document.getElementById("results").classList.add("hidden");
