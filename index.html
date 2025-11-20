@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Foot entre amis ⚽</title>
+    <title>Quiz Foot - Défi entre amis ⚽</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
-        <h1>⚽ Quiz Football - Défi entre amis</h1>
+
+    <header class="header">
+        <h1 class="title">⚽ Quiz Football - Défi entre amis</h1>
     </header>
 
     <main>
-        <!-- 🏠 ACCUEIL -->
-        <section id="home" class="card">
-            <h2>Bienvenue dans le Quiz Foot !</h2>
-            <p>Sélectionne le nombre de joueurs :</p>
 
+        <!-- 🏠 ÉCRAN D'ACCUEIL -->
+        <section id="home" class="card active">
+            <h2>Bienvenue dans le Quiz Foot !</h2>
+
+            <p>Sélectionne le nombre de joueurs :</p>
             <select id="player-count">
                 <option value="2">2 joueurs</option>
                 <option value="3">3 joueurs</option>
@@ -25,50 +28,63 @@
 
             <div id="player-names" class="player-inputs"></div>
 
-            <p>Sélectionne la difficulté :</p>
+            <p>Choisis la difficulté :</p>
             <select id="difficulty">
-                <option value="easy">Facile</option>
-                <option value="medium">Moyenne</option>
-                <option value="hard">Difficile</option>
+                <option value="easy">Facile ⚽</option>
+                <option value="medium">Moyenne ⭐</option>
+                <option value="hard">Difficile 🔥</option>
             </select>
 
-            <button id="play-btn" class="btn-primary">🎮 Jouer</button>
+            <button id="play-btn" class="btn-primary">🎮 Commencer la partie</button>
         </section>
 
-        <!-- ⚽ TRANSITION ENTRE JOUEURS -->
+        <!-- 🔄 TRANSITION ENTRE JOUEURS -->
         <section id="turn-transition" class="card hidden">
             <h2 id="next-player-text">C’est au tour de ...</h2>
         </section>
 
-        <!-- 🕹️ JEU -->
+        <!-- 🎲 ÉCRAN DE JEU -->
         <section id="game" class="card hidden">
-            <div id="progress" class="progress-bar">
-                <span id="progress-text">Question 1 / 10</span>
+
+            <div class="top-bar">
+                <span id="current-player" class="current-player"></span>
+                <span id="joker-btn" class="joker-btn">🎯 50/50</span>
             </div>
 
-            <h2 id="question" class="question">Chargement...</h2>
+            <div class="progress-block">
+                <span id="progress-text">Question 1 / 10</span>
+                <div class="progress-bar"><div id="progress-fill"></div></div>
+            </div>
+
+            <h2 id="question" class="question">Chargement…</h2>
 
             <div id="answers" class="answers-grid"></div>
 
-            <div id="timer" class="timer">⏱️ Temps restant : <span id="time">10</span>s</div>
+            <div id="timer" class="timer">
+                ⏱️ Temps restant : <span id="time">10</span>s
+            </div>
+
         </section>
 
-        <!-- 🏁 RÉSULTATS -->
+        <!-- 🏆 ÉCRAN DES RÉSULTATS -->
         <section id="results" class="card hidden">
             <h2>Fin du quiz !</h2>
-            <p>🏆 <span id="winner">?</span></p>
+            <p class="winner-text">🏆 <span id="winner">?</span></p>
 
-            <div class="score-summary" id="score-summary"></div>
+            <div id="score-summary" class="score-summary"></div>
 
-            <button onclick="startGame()" class="btn-primary">🔁 Rejouer</button>
-            <button onclick="goHome()" class="btn-secondary">🏠 Retour à l’accueil</button>
+            <button id="restart-btn" class="btn-primary">🔁 Rejouer</button>
+            <button id="home-btn" class="btn-secondary">🏠 Retour à l'accueil</button>
         </section>
+
     </main>
 
     <footer>
-        <p>⚽ Portfolio - Jeu Quiz Foot entre amis</p>
+        <p>⚽ Quiz Foot – Portfolio 2025 | Développeur : Vous</p>
     </footer>
 
+    <!-- Script unique contenant logique + questions + sons -->
     <script src="script.js"></script>
+
 </body>
 </html>
