@@ -1,15 +1,5 @@
 // -------------------------
-// VARIABLES GLOBALES
-// -------------------------
-let players = [];
-let scores = [];
-let currentPlayerIndex = 0;
-let currentQuestion = 0;
-let timer;
-let timeLeft = 10;
-
-// -------------------------
-// QUESTIONS
+// QUESTIONS AVEC IMAGES
 // -------------------------
 const questions = [
     {
@@ -52,15 +42,27 @@ const questions = [
         ],
         correct: 3
     }
+    // Tu peux ajouter d'autres questions ici
 ];
 
 // -------------------------
-// GÉRER LES NOMS DE JOUEURS
+// VARIABLES GLOBALES
+// -------------------------
+let players = [];
+let scores = [];
+let currentPlayerIndex = 0;
+let currentQuestion = 0;
+let timer;
+let timeLeft = 10;
+
+// -------------------------
+// GÉRER L'AFFICHAGE DES NOMS DE JOUEURS
 // -------------------------
 const playerCountSelect = document.getElementById("player-count");
 const playerNamesDiv = document.getElementById("player-names");
 
-playerCountSelect.addEventListener("change", () => {
+// Fonction pour créer les champs noms des joueurs
+function createPlayerInputs() {
     const count = parseInt(playerCountSelect.value);
     playerNamesDiv.innerHTML = "";
     for (let i = 0; i < count; i++) {
@@ -70,36 +72,40 @@ playerCountSelect.addEventListener("change", () => {
         input.id = `player${i}`;
         playerNamesDiv.appendChild(input);
     }
-});
+}
+
+// Générer les inputs au chargement
+createPlayerInputs();
+
+// Générer les inputs quand le nombre de joueurs change
+playerCountSelect.addEventListener("change", createPlayerInputs);
 
 // -------------------------
-// BOUTON JOUER
+// BOUTON LANCER LE JEU
 // -------------------------
 document.getElementById("play-btn").addEventListener("click", () => {
     const count = parseInt(playerCountSelect.value);
     players = [];
     scores = Array(count).fill(0);
-
     for (let i = 0; i < count; i++) {
-        const name = document.getElementById(`player${i}`).value.trim() || `Joueur ${i + 1}`;
-        players.push(name);
+        const input = document.getElementById(`player${i}`);
+        const name = input ? input.value.trim() : `Joueur ${i + 1}`;
+        players.push(name || `Joueur ${i + 1}`);
     }
-
     currentPlayerIndex = 0;
     currentQuestion = 0;
-
     document.getElementById("home").classList.add("hidden");
     showTurnTransition();
 });
 
 // -------------------------
-// TRANSITION ENTRE JOUEURS
+// AFFICHER TRANSITION JOUEUR
 // -------------------------
 function showTurnTransition() {
     document.getElementById("turn-transition").classList.remove("hidden");
     document.getElementById("game").classList.add("hidden");
+    document.getElementById("results").classList.add("hidden");
     document.getElementById("next-player-text").textContent = `C’est au tour de ${players[currentPlayerIndex]} !`;
-
     setTimeout(() => {
         document.getElementById("turn-transition").classList.add("hidden");
         startGame();
@@ -107,7 +113,7 @@ function showTurnTransition() {
 }
 
 // -------------------------
-// DÉBUT DU JEU
+// LANCER LE JEU
 // -------------------------
 function startGame() {
     document.getElementById("game").classList.remove("hidden");
@@ -116,15 +122,15 @@ function startGame() {
 }
 
 // -------------------------
-// AFFICHER QUESTION
+// AFFICHER LA QUESTION
 // -------------------------
 function showQuestion() {
     const q = questions[currentQuestion];
     document.getElementById("question").textContent = q.question;
+    document.getElementById("progress-text").textContent = `Question ${currentQuestion + 1} / ${questions.length}`;
 
     const answersDiv = document.getElementById("answers");
     answersDiv.innerHTML = "";
-
     q.answers.forEach((a, index) => {
         const btn = document.createElement("button");
         btn.classList.add("answer-btn");
@@ -132,8 +138,6 @@ function showQuestion() {
         btn.onclick = () => submitAnswer(index);
         answersDiv.appendChild(btn);
     });
-
-    document.getElementById("progress-text").textContent = `Question ${currentQuestion + 1} / ${questions.length}`;
 }
 
 // -------------------------
@@ -142,24 +146,21 @@ function showQuestion() {
 function startTimer() {
     timeLeft = 10;
     document.getElementById("time").textContent = timeLeft;
-
-    clearInterval(timer);
     timer = setInterval(() => {
         timeLeft--;
         document.getElementById("time").textContent = timeLeft;
         if (timeLeft <= 0) {
             clearInterval(timer);
-            submitAnswer(-1);
+            submitAnswer(-1); // pas de réponse
         }
     }, 1000);
 }
 
 // -------------------------
-// SOUMETTRE RÉPONSE
+// SUBMIT RÉPONSE
 // -------------------------
 function submitAnswer(index) {
     clearInterval(timer);
-
     const q = questions[currentQuestion];
     const buttons = document.querySelectorAll("#answers button");
     buttons.forEach(b => b.disabled = true);
@@ -170,11 +171,13 @@ function submitAnswer(index) {
         else if (i === index) btn.classList.add("wrong");
     });
 
+    // Mise à jour score
     if (index === q.correct) scores[currentPlayerIndex]++;
 
     setTimeout(() => {
         currentQuestion++;
         if (currentQuestion >= questions.length) {
+            // Prochain joueur ou fin
             currentPlayerIndex++;
             currentQuestion = 0;
             if (currentPlayerIndex >= players.length) {
@@ -196,11 +199,12 @@ function showResults() {
     document.getElementById("game").classList.add("hidden");
     document.getElementById("results").classList.remove("hidden");
 
+    // Déterminer gagnant(s)
     const maxScore = Math.max(...scores);
     const winners = players.filter((p, i) => scores[i] === maxScore);
-
     document.getElementById("winner").textContent = winners.join(" & ") + ` avec ${maxScore} points !`;
 
+    // Afficher résumé
     const summary = document.getElementById("score-summary");
     summary.innerHTML = "";
     players.forEach((p, i) => {
@@ -216,4 +220,5 @@ function showResults() {
 function goHome() {
     document.getElementById("results").classList.add("hidden");
     document.getElementById("home").classList.remove("hidden");
+    createPlayerInputs(); // réinitialiser les inputs
 }
