@@ -253,13 +253,20 @@ select {
    FOOTER
 ------------------------- */
 footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
     background: rgba(0, 0, 0, 0.3);
     padding: 15px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    
+    text-align: center;
     font-size: 14px;
     color: #fff;
+
+    z-index: 9999; /* reste toujours au-dessus sans gêner le contenu */
+    backdrop-filter: blur(5px); /* optionnel : plus propre */
 }
 
 /* -------------------------
