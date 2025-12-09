@@ -2,221 +2,221 @@
 // QUESTIONS PAR JOUEUR
 // -------------------------
 const questionsByPlayer = [
-    // Joueur 1
-    [
-        {
-            question: "Quel pays a remporté la Coupe du Monde 2018 ?",
-            answers: [
-                { img: "https://flagcdn.com/w320/br.png", text: "Brésil" },
-                { img: "https://flagcdn.com/w320/fr.png", text: "France" },
-                { img: "https://flagcdn.com/w320/de.png", text: "Allemagne" },
-                { img: "https://flagcdn.com/w320/ar.png", text: "Argentine" }
-            ],
-            correct: 1
-        },
-        {
-            question: "Quel club a remporté la Ligue des Champions 2021 ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg", text: "Chelsea" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg", text: "Man City" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg", text: "PSG" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Quel joueur est surnommé 'CR7' ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Quel club a le plus de titres en Premier League ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/a/a7/Arsenal_FC.svg", text: "Arsenal" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/7/7a/Chelsea_FC.svg", text: "Chelsea" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/7/7d/Manchester_United_FC_crest.svg", text: "Manchester United" }
-            ],
-            correct: 3
-        },
-        {
-            question: "Quel joueur a remporté le Ballon d'Or 2022 ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
-            ],
-            correct: 0
-        }
-    ],
+  // Joueur 1
+  [
+    {
+      question: "Quel pays a remporté la Coupe du Monde 2018 ?",
+      answers: [
+        { img: "https://flagcdn.com/w320/br.png", text: "Brésil" },
+        { img: "https://flagcdn.com/w320/fr.png", text: "France" },
+        { img: "https://flagcdn.com/w320/de.png", text: "Allemagne" },
+        { img: "https://flagcdn.com/w320/ar.png", text: "Argentine" }
+      ],
+      correct: 1
+    },
+    {
+      question: "Quel club a remporté la Ligue des Champions 2021 ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg", text: "Chelsea" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg", text: "Man City" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg", text: "PSG" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Quel joueur est surnommé 'CR7' ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Quel club a le plus de titres en Premier League ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/a/a7/Arsenal_FC.svg", text: "Arsenal" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/7/7a/Chelsea_FC.svg", text: "Chelsea" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/7/7d/Manchester_United_FC_crest.svg", text: "Manchester United" }
+      ],
+      correct: 3
+    },
+    {
+      question: "Quel joueur a remporté le Ballon d'Or 2022 ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
+      ],
+      correct: 0
+    }
+  ],
 
-    // Joueur 2
-    [
-        {
-            question: "Quel pays a remporté l'Euro 2020 ?",
-            answers: [
-                { img: "https://flagcdn.com/w320/it.png", text: "Italie" },
-                { img: "https://flagcdn.com/w320/eng.png", text: "Angleterre" },
-                { img: "https://flagcdn.com/w320/fr.png", text: "France" },
-                { img: "https://flagcdn.com/w320/sp.png", text: "Espagne" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Qui est le meilleur buteur de tous les temps du PSG ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Quel club a remporté la Ligue Europa 2021 ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/5/54/Sevilla_FC_logo.svg", text: "Séville" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/0/01/Manchester_United_FC_crest.svg", text: "Man United" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/5/57/Arsenal_FC.svg", text: "Arsenal" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/7/7a/Chelsea_FC.svg", text: "Chelsea" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Quel joueur est surnommé 'La Pulga' ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/83/Lionel_Messi_20180626.jpg", text: "Messi" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Quel club est surnommé les 'Red Devils' ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/en/7/7d/Manchester_United_FC_crest.svg", text: "Man United" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/c/c1/Chelsea_FC.svg", text: "Chelsea" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/a/a7/Arsenal_FC.svg", text: "Arsenal" }
-            ],
-            correct: 0
-        }
-    ],
+  // Joueur 2
+  [
+    {
+      question: "Quel pays a remporté l'Euro 2020 ?",
+      answers: [
+        { img: "https://flagcdn.com/w320/it.png", text: "Italie" },
+        { img: "https://flagcdn.com/w320/eng.png", text: "Angleterre" },
+        { img: "https://flagcdn.com/w320/fr.png", text: "France" },
+        { img: "https://flagcdn.com/w320/sp.png", text: "Espagne" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Qui est le meilleur buteur de tous les temps du PSG ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Quel club a remporté la Ligue Europa 2021 ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/5/54/Sevilla_FC_logo.svg", text: "Séville" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/0/01/Manchester_United_FC_crest.svg", text: "Man United" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/5/57/Arsenal_FC.svg", text: "Arsenal" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/7/7a/Chelsea_FC.svg", text: "Chelsea" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Quel joueur est surnommé 'La Pulga' ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/83/Lionel_Messi_20180626.jpg", text: "Messi" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Quel club est surnommé les 'Red Devils' ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/en/7/7d/Manchester_United_FC_crest.svg", text: "Man United" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/c/c1/Chelsea_FC.svg", text: "Chelsea" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/a/a7/Arsenal_FC.svg", text: "Arsenal" }
+      ],
+      correct: 0
+    }
+  ],
 
-    // Joueur 3
-    [
-        {
-            question: "Quel joueur a marqué le but de la victoire en finale de la Coupe du Monde 2014 ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/1/14/Mario_Gotze_2014.jpg", text: "Götze" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Quel club a remporté la Copa Libertadores 2021 ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/5/54/Palmeiras_logo.svg", text: "Palmeiras" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/0/01/Manchester_United_FC_crest.svg", text: "Man United" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/7/7a/Chelsea_FC.svg", text: "Chelsea" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Qui est le capitaine actuel de l'équipe d'Argentine ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/83/Lionel_Messi_20180626.jpg", text: "Messi" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Quel joueur est surnommé 'King' à Liverpool ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/0/09/Salah_2020.jpg", text: "Salah" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Quel joueur a gagné la Ligue des Nations 2021 avec la France ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
-            ],
-            correct: 0
-        }
-    ],
+  // Joueur 3
+  [
+    {
+      question: "Quel joueur a marqué le but de la victoire en finale de la Coupe du Monde 2014 ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/1/14/Mario_Gotze_2014.jpg", text: "Götze" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Quel club a remporté la Copa Libertadores 2021 ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/5/54/Palmeiras_logo.svg", text: "Palmeiras" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/0/01/Manchester_United_FC_crest.svg", text: "Man United" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/7/7a/Chelsea_FC.svg", text: "Chelsea" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Qui est le capitaine actuel de l'équipe d'Argentine ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/83/Lionel_Messi_20180626.jpg", text: "Messi" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Quel joueur est surnommé 'King' à Liverpool ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/0/09/Salah_2020.jpg", text: "Salah" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Quel joueur a gagné la Ligue des Nations 2021 avec la France ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
+      ],
+      correct: 0
+    }
+  ],
 
-    // Joueur 4
-    [
-        {
-            question: "Quel club a remporté la Serie A 2021 ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/2/28/Inter_Milan_Logo_2014.svg", text: "Inter" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Juventus_Turin_Logo.svg", text: "Juventus" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/6/60/AC_Milan_logo.svg", text: "AC Milan" },
-                { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Quel joueur argentin joue au PSG ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/83/Lionel_Messi_20180626.jpg", text: "Messi" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Quel club a remporté la Bundesliga 2021 ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/0/06/Bayern_M%C3%BCnchen_logo_%282017%29.svg", text: "Bayern" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/0/01/Borussia_Dortmund_logo.svg", text: "Dortmund" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/4/41/RB_Leipzig_2014_logo.svg", text: "RB Leipzig" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Schalke_04_logo.svg", text: "Schalke" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Quel joueur brésilien joue au Real Madrid ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
-            ],
-            correct: 0
-        },
-        {
-            question: "Quel joueur espagnol est surnommé 'La Roja' ?",
-            answers: [
-                { img: "https://upload.wikimedia.org/wikipedia/commons/5/52/Sergio_Ramos_2012.jpg", text: "Sergio Ramos" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/4/45/Andres_Iniesta_2018.jpg", text: "Iniesta" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Xavi_Hernandez_2017.jpg", text: "Xavi" },
-                { img: "https://upload.wikimedia.org/wikipedia/commons/0/09/Fernando_Torres_2011.jpg", text: "Torres" }
-            ],
-            correct: 0
-        }
-    ]
+  // Joueur 4
+  [
+    {
+      question: "Quel club a remporté la Serie A 2021 ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/2/28/Inter_Milan_Logo_2014.svg", text: "Inter" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Juventus_Turin_Logo.svg", text: "Juventus" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/6/60/AC_Milan_logo.svg", text: "AC Milan" },
+        { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Quel joueur argentin joue au PSG ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/83/Lionel_Messi_20180626.jpg", text: "Messi" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Quel club a remporté la Bundesliga 2021 ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/0/06/Bayern_M%C3%BCnchen_logo_%282017%29.svg", text: "Bayern" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/0/01/Borussia_Dortmund_logo.svg", text: "Dortmund" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/4/41/RB_Leipzig_2014_logo.svg", text: "RB Leipzig" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Schalke_04_logo.svg", text: "Schalke" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Quel joueur brésilien joue au Real Madrid ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
+      ],
+      correct: 0
+    },
+    {
+      question: "Quel joueur espagnol est surnommé 'La Roja' ?",
+      answers: [
+        { img: "https://upload.wikimedia.org/wikipedia/commons/5/52/Sergio_Ramos_2012.jpg", text: "Sergio Ramos" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/4/45/Andres_Iniesta_2018.jpg", text: "Iniesta" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Xavi_Hernandez_2017.jpg", text: "Xavi" },
+        { img: "https://upload.wikimedia.org/wikipedia/commons/0/09/Fernando_Torres_2011.jpg", text: "Torres" }
+      ],
+      correct: 0
+    }
+  ]
 ];
 
 // -------------------------
@@ -230,209 +230,157 @@ let timer;
 let timeLeft = 10;
 
 // -------------------------
-// GÉRER L'AFFICHAGE DES NOMS DE JOUEURS
+// GÉRER LES NOMS DE JOUEURS
 // -------------------------
 const playerCountSelect = document.getElementById("player-count");
 const playerNamesDiv = document.getElementById("player-names");
 
 function createPlayerInputs() {
-    const count = parseInt(playerCountSelect.value);
-    playerNamesDiv.innerHTML = "";
-    for (let i = 0; i < count; i++) {
-        const input = document.createElement("input");
-        input.type = "text";
-        input.placeholder = `Nom Joueur ${i + 1}`;
-        input.id = `player${i}`;
-        playerNamesDiv.appendChild(input);
-    }
+  const count = parseInt(playerCountSelect.value);
+  playerNamesDiv.innerHTML = "";
+  for (let i = 0; i < count; i++) {
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = `Nom Joueur ${i + 1}`;
+    input.id = `player${i}`;
+    playerNamesDiv.appendChild(input);
+  }
 }
 createPlayerInputs();
 playerCountSelect.addEventListener("change", createPlayerInputs);
 
 // -------------------------
-// BOUTON LANCER LE JEU
+// DÉBUT DU JEU
 // -------------------------
 document.getElementById("play-btn").addEventListener("click", () => {
-    const count = parseInt(playerCountSelect.value);
-    players = [];
-    scores = Array(count).fill(0);
-    for (let i = 0; i < count; i++) {
-        const input = document.getElementById(`player${i}`);
-        const name = input ? input.value.trim() : `Joueur ${i + 1}`;
-        players.push(name || `Joueur ${i + 1}`);
-    }
-    currentPlayerIndex = 0;
-    currentQuestion = 0;
-    document.getElementById("home").classList.add("hidden");
-    showTurnTransition();
+  const count = parseInt(playerCountSelect.value);
+  players = [];
+  scores = Array(count).fill(0);
+  for (let i = 0; i < count; i++) {
+    const input = document.getElementById(`player${i}`);
+    const name = input ? input.value.trim() : `Joueur ${i + 1}`;
+    players.push(name || `Joueur ${i + 1}`);
+  }
+  currentPlayerIndex = 0;
+  currentQuestion = 0;
+  document.getElementById("home").classList.add("hidden");
+  showTurnTransition();
 });
 
 // -------------------------
-// AFFICHER TRANSITION JOUEUR
+// TRANSITION JOUEUR
 // -------------------------
 function showTurnTransition() {
-    document.getElementById("turn-transition").classList.remove("hidden");
-    document.getElementById("game").classList.add("hidden");
-    document.getElementById("results").classList.add("hidden");
-    document.getElementById("next-player-text").textContent = `C’est au tour de ${players[currentPlayerIndex]} !`;
-    setTimeout(() => {
-        document.getElementById("turn-transition").classList.add("hidden");
-        startGame();
-    }, 1500);
-}
-
-// -------------------------
-// LANCER LE JEU
-// -------------------------
-document.getElementById("play-btn").addEventListener("click", () => {
-    const count = parseInt(playerCountSelect.value);
-    players = [];
-    scores = Array(count).fill(0);
-
-    for (let i = 0; i < count; i++) {
-        const input = document.getElementById(`player${i}`);
-        const name = input ? input.value.trim() : `Joueur ${i + 1}`;
-        players.push(name || `Joueur ${i + 1}`);
-    }
-
-    currentPlayerIndex = 0;
-    currentQuestion = 0;
-    document.getElementById("home").classList.add("hidden");
-    showTurnTransition();
-});
-
-// -------------------------
-// TRANSITION ENTRE JOUEURS
-// -------------------------
-function showTurnTransition() {
-    document.getElementById("turn-transition").classList.remove("hidden");
-    document.getElementById("game").classList.add("hidden");
-    document.getElementById("results").classList.add("hidden");
-
-    document.getElementById("next-player-text").textContent =
-        `C’est au tour de ${players[currentPlayerIndex]} !`;
-
-    setTimeout(() => {
-        document.getElementById("turn-transition").classList.add("hidden");
-        startGame();
-    }, 1500);
+  document.getElementById("turn-transition").classList.remove("hidden");
+  document.getElementById("game").classList.add("hidden");
+  document.getElementById("results").classList.add("hidden");
+  document.getElementById("next-player-text").textContent = `C’est au tour de ${players[currentPlayerIndex]} !`;
+  setTimeout(() => {
+    document.getElementById("turn-transition").classList.add("hidden");
+    startGame();
+  }, 1500);
 }
 
 // -------------------------
 // START GAME
 // -------------------------
 function startGame() {
-    document.getElementById("game").classList.remove("hidden");
-    showQuestion();
-    startTimer();
+  document.getElementById("game").classList.remove("hidden");
+  showQuestion();
+  startTimer();
 }
 
 // -------------------------
-// AFFICHER LA QUESTION
+// AFFICHER QUESTION
 // -------------------------
 function showQuestion() {
-    const q = questionsByPlayer[currentPlayerIndex][currentQuestion];
-    document.getElementById("question").textContent = q.question;
-    document.getElementById("progress-text").textContent =
-        `Question ${currentQuestion + 1} / ${questionsByPlayer[currentPlayerIndex].length}`;
+  const q = questionsByPlayer[currentPlayerIndex][currentQuestion];
+  document.getElementById("question").textContent = q.question;
+  document.getElementById("progress-text").textContent = `Question ${currentQuestion + 1} / ${questionsByPlayer[currentPlayerIndex].length}`;
+  document.documentElement.style.setProperty("--progress", `${(currentQuestion / (questionsByPlayer[currentPlayerIndex].length - 1)) * 100}%`);
 
-    const progress = ((currentQuestion) / (questionsByPlayer[currentPlayerIndex].length - 1)) * 100 + "%";
-    document.documentElement.style.setProperty("--progress", progress);
-
-    const answersDiv = document.getElementById("answers");
-    answersDiv.innerHTML = "";
-
-    q.answers.forEach((a, index) => {
-        const btn = document.createElement("button");
-        btn.classList.add("answer-btn");
-        btn.innerHTML = `<img src="${a.img}" alt="${a.text}"><span>${a.text}</span>`;
-        btn.onclick = () => submitAnswer(index);
-        answersDiv.appendChild(btn);
-    });
+  const answersDiv = document.getElementById("answers");
+  answersDiv.innerHTML = "";
+  q.answers.forEach((a, index) => {
+    const btn = document.createElement("button");
+    btn.classList.add("answer-btn");
+    btn.innerHTML = `<img src="${a.img}" alt="${a.text}"><span>${a.text}</span>`;
+    btn.onclick = () => submitAnswer(index);
+    answersDiv.appendChild(btn);
+  });
 }
 
 // -------------------------
 // TIMER
 // -------------------------
 function startTimer() {
-    timeLeft = 10;
+  timeLeft = 10;
+  document.getElementById("time").textContent = timeLeft;
+  timer = setInterval(() => {
+    timeLeft--;
     document.getElementById("time").textContent = timeLeft;
-
-    timer = setInterval(() => {
-        timeLeft--;
-        document.getElementById("time").textContent = timeLeft;
-
-        if (timeLeft <= 0) {
-            clearInterval(timer);
-            submitAnswer(-1);
-        }
-    }, 1000);
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      submitAnswer(-1);
+    }
+  }, 1000);
 }
 
 // -------------------------
-// TRAITER LA RÉPONSE
+// SUBMIT ANSWER
 // -------------------------
 function submitAnswer(index) {
-    clearInterval(timer);
+  clearInterval(timer);
+  const q = questionsByPlayer[currentPlayerIndex][currentQuestion];
+  const buttons = document.querySelectorAll("#answers button");
+  buttons.forEach(b => b.disabled = true);
 
-    const q = questionsByPlayer[currentPlayerIndex][currentQuestion];
-    const buttons = document.querySelectorAll("#answers button");
-    buttons.forEach(b => b.disabled = true);
+  buttons.forEach((btn, i) => {
+    if (i === q.correct) btn.classList.add("correct");
+    else if (i === index) btn.classList.add("wrong");
+  });
 
-    buttons.forEach((btn, i) => {
-        if (i === q.correct) btn.classList.add("correct");
-        else if (i === index) btn.classList.add("wrong");
-    });
+  if (index === q.correct) scores[currentPlayerIndex]++;
 
-    if (index === q.correct) scores[currentPlayerIndex]++;
-
-    setTimeout(() => {
-        currentQuestion++;
-
-        if (currentQuestion >= questionsByPlayer[currentPlayerIndex].length) {
-            currentPlayerIndex++;
-            currentQuestion = 0;
-
-            if (currentPlayerIndex >= players.length) {
-                showResults();
-            } else {
-                showTurnTransition();
-            }
-        } else {
-            showQuestion();
-            startTimer();
-        }
-    }, 1200);
+  setTimeout(() => {
+    currentQuestion++;
+    if (currentQuestion >= questionsByPlayer[currentPlayerIndex].length) {
+      currentPlayerIndex++;
+      currentQuestion = 0;
+      if (currentPlayerIndex >= players.length) showResults();
+      else showTurnTransition();
+    } else {
+      showQuestion();
+      startTimer();
+    }
+  }, 1200);
 }
 
 // -------------------------
-// AFFICHER LES RÉSULTATS
+// AFFICHER RÉSULTATS
 // -------------------------
 function showResults() {
-    document.getElementById("game").classList.add("hidden");
-    document.getElementById("results").classList.remove("hidden");
+  document.getElementById("game").classList.add("hidden");
+  document.getElementById("results").classList.remove("hidden");
 
-    const maxScore = Math.max(...scores);
-    const winners = players.filter((p, i) => scores[i] === maxScore);
+  const maxScore = Math.max(...scores);
+  const winners = players.filter((p, i) => scores[i] === maxScore);
+  document.getElementById("winner").textContent = winners.join(" & ") + ` avec ${maxScore} points !`;
 
-    document.getElementById("winner").textContent =
-        winners.join(" & ") + ` avec ${maxScore} points !`;
-
-    const summary = document.getElementById("score-summary");
-    summary.innerHTML = "";
-
-    players.forEach((p, i) => {
-        const div = document.createElement("div");
-        div.textContent = `${p} : ${scores[i]} pts`;
-        summary.appendChild(div);
-    });
+  const summary = document.getElementById("score-summary");
+  summary.innerHTML = "";
+  players.forEach((p, i) => {
+    const div = document.createElement("div");
+    div.textContent = `${p} : ${scores[i]} pts`;
+    summary.appendChild(div);
+  });
 }
 
 // -------------------------
 // REVENIR À L'ACCUEIL
 // -------------------------
 function goHome() {
-    document.getElementById("results").classList.add("hidden");
-    document.getElementById("home").classList.remove("hidden");
-    createPlayerInputs();
+  document.getElementById("results").classList.add("hidden");
+  document.getElementById("home").classList.remove("hidden");
+  createPlayerInputs();
 }
