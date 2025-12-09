@@ -42,7 +42,6 @@ const questions = [
         ],
         correct: 3
     }
-    // Tu peux ajouter d'autres questions ici
 ];
 
 // -------------------------
@@ -61,7 +60,6 @@ let timeLeft = 10;
 const playerCountSelect = document.getElementById("player-count");
 const playerNamesDiv = document.getElementById("player-names");
 
-// Fonction pour créer les champs noms des joueurs
 function createPlayerInputs() {
     const count = parseInt(playerCountSelect.value);
     playerNamesDiv.innerHTML = "";
@@ -74,10 +72,7 @@ function createPlayerInputs() {
     }
 }
 
-// Générer les inputs au chargement
 createPlayerInputs();
-
-// Générer les inputs quand le nombre de joueurs change
 playerCountSelect.addEventListener("change", createPlayerInputs);
 
 // -------------------------
@@ -87,11 +82,13 @@ document.getElementById("play-btn").addEventListener("click", () => {
     const count = parseInt(playerCountSelect.value);
     players = [];
     scores = Array(count).fill(0);
+
     for (let i = 0; i < count; i++) {
         const input = document.getElementById(`player${i}`);
         const name = input ? input.value.trim() : `Joueur ${i + 1}`;
         players.push(name || `Joueur ${i + 1}`);
     }
+
     currentPlayerIndex = 0;
     currentQuestion = 0;
     document.getElementById("home").classList.add("hidden");
@@ -99,13 +96,16 @@ document.getElementById("play-btn").addEventListener("click", () => {
 });
 
 // -------------------------
-// AFFICHER TRANSITION JOUEUR
+// TRANSITION ENTRE JOUEURS
 // -------------------------
 function showTurnTransition() {
     document.getElementById("turn-transition").classList.remove("hidden");
     document.getElementById("game").classList.add("hidden");
     document.getElementById("results").classList.add("hidden");
-    document.getElementById("next-player-text").textContent = `C’est au tour de ${players[currentPlayerIndex]} !`;
+
+    document.getElementById("next-player-text").textContent =
+        `C’est au tour de ${players[currentPlayerIndex]} !`;
+
     setTimeout(() => {
         document.getElementById("turn-transition").classList.add("hidden");
         startGame();
@@ -122,15 +122,21 @@ function startGame() {
 }
 
 // -------------------------
-// AFFICHER LA QUESTION
+// AFFICHER LA QUESTION + PROGRESSION FIXE
 // -------------------------
 function showQuestion() {
     const q = questions[currentQuestion];
     document.getElementById("question").textContent = q.question;
-    document.getElementById("progress-text").textContent = `Question ${currentQuestion + 1} / ${questions.length}`;
+    document.getElementById("progress-text").textContent =
+        `Question ${currentQuestion + 1} / ${questions.length}`;
+
+    // Mise à jour de la barre de progression
+    const progress = ((currentQuestion) / (questions.length - 1)) * 100 + "%";
+    document.documentElement.style.setProperty("--progress", progress);
 
     const answersDiv = document.getElementById("answers");
     answersDiv.innerHTML = "";
+
     q.answers.forEach((a, index) => {
         const btn = document.createElement("button");
         btn.classList.add("answer-btn");
@@ -146,40 +152,42 @@ function showQuestion() {
 function startTimer() {
     timeLeft = 10;
     document.getElementById("time").textContent = timeLeft;
+
     timer = setInterval(() => {
         timeLeft--;
         document.getElementById("time").textContent = timeLeft;
+
         if (timeLeft <= 0) {
             clearInterval(timer);
-            submitAnswer(-1); // pas de réponse
+            submitAnswer(-1);
         }
     }, 1000);
 }
 
 // -------------------------
-// SUBMIT RÉPONSE
+// TRAITER LA RÉPONSE
 // -------------------------
 function submitAnswer(index) {
     clearInterval(timer);
+
     const q = questions[currentQuestion];
     const buttons = document.querySelectorAll("#answers button");
     buttons.forEach(b => b.disabled = true);
 
-    // Marquer correct/wrong
     buttons.forEach((btn, i) => {
         if (i === q.correct) btn.classList.add("correct");
         else if (i === index) btn.classList.add("wrong");
     });
 
-    // Mise à jour score
     if (index === q.correct) scores[currentPlayerIndex]++;
 
     setTimeout(() => {
         currentQuestion++;
+
         if (currentQuestion >= questions.length) {
-            // Prochain joueur ou fin
             currentPlayerIndex++;
             currentQuestion = 0;
+
             if (currentPlayerIndex >= players.length) {
                 showResults();
             } else {
@@ -193,20 +201,21 @@ function submitAnswer(index) {
 }
 
 // -------------------------
-// AFFICHER RÉSULTATS
+// AFFICHER LES RÉSULTATS
 // -------------------------
 function showResults() {
     document.getElementById("game").classList.add("hidden");
     document.getElementById("results").classList.remove("hidden");
 
-    // Déterminer gagnant(s)
     const maxScore = Math.max(...scores);
     const winners = players.filter((p, i) => scores[i] === maxScore);
-    document.getElementById("winner").textContent = winners.join(" & ") + ` avec ${maxScore} points !`;
 
-    // Afficher résumé
+    document.getElementById("winner").textContent =
+        winners.join(" & ") + ` avec ${maxScore} points !`;
+
     const summary = document.getElementById("score-summary");
     summary.innerHTML = "";
+
     players.forEach((p, i) => {
         const div = document.createElement("div");
         div.textContent = `${p} : ${scores[i]} pts`;
@@ -215,10 +224,10 @@ function showResults() {
 }
 
 // -------------------------
-// REVENIR À L'ACCUEIL
+// RETOUR À L'ACCUEIL
 // -------------------------
 function goHome() {
     document.getElementById("results").classList.add("hidden");
     document.getElementById("home").classList.remove("hidden");
-    createPlayerInputs(); // réinitialiser les inputs
+    createPlayerInputs();
 }
