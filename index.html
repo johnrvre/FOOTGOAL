@@ -1,8 +1,10 @@
+```html
 <header>
     <h1 class="neon-title">FOOTGOAL</h1>
 </header>
 
 <main>
+
     <!-- ACCUEIL -->
     <section id="home" class="card">
         <h2>Bienvenue dans le Quiz Foot !</h2>
@@ -16,31 +18,72 @@
 
         <div id="player-names" class="player-inputs"></div>
 
-        <button id="play-btn" class="btn-primary">🎮 Jouer</button>
+        <button id="play-btn" class="btn-primary">
+            🎮 Jouer
+        </button>
     </section>
 
-    <!-- TRANSITION ENTRE JOUEURS -->
+
+    <!-- TRANSITION ENTRE LES JOUEURS -->
     <section id="turn-transition" class="card hidden">
-        <h2 id="next-player-text">C’est au tour de ...</h2>
+        <h2 id="next-player-text">
+            C’est au tour de...
+        </h2>
     </section>
+
 
     <!-- JEU -->
     <section id="game" class="card hidden">
+
         <div id="progress" class="progress-bar">
-            <span id="progress-text">Question 1 / 10</span>
+            <span id="progress-text">
+                Question 1 / 5
+            </span>
         </div>
 
-        <h2 id="question" class="question">Chargement...</h2>
+        <h2 id="question" class="question">
+            Chargement...
+        </h2>
+
         <div id="answers" class="answers-grid"></div>
-        <div id="timer" class="timer">⏱️ Temps restant : <span id="time">10</span>s</div>
+
+        <div id="timer" class="timer">
+            ⏱️ Temps restant :
+            <span id="time">10</span>s
+        </div>
+
     </section>
+
 
     <!-- RÉSULTATS -->
     <section id="results" class="card hidden">
+
         <h2>Fin du quiz !</h2>
-        <p>🏆 <span id="winner">?</span></p>
-        <div class="score-summary" id="score-summary"></div>
-        <button onclick="startGame()" class="btn-primary">🔁 Rejouer</button>
-        <button onclick="goHome()" class="btn-secondary">🏠 Retour à l’accueil</button>
+
+        <p>
+            🏆 <span id="winner">?</span>
+        </p>
+
+        <div
+            id="score-summary"
+            class="score-summary">
+        </div>
+
+        <button
+            id="restart-btn"
+            class="btn-primary"
+            onclick="restartGame()">
+            🔁 Rejouer
+        </button>
+
+        <button
+            id="home-btn"
+            class="btn-secondary"
+            onclick="goHome()">
+            🏠 Retour à l’accueil
+        </button>
+
     </section>
+
 </main>
+```
