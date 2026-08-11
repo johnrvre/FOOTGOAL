@@ -1,386 +1,938 @@
-// -------------------------
-// QUESTIONS PAR JOUEUR
-// -------------------------
+// =========================
+// QUESTIONS
+// =========================
+
 const questionsByPlayer = [
-  // Joueur 1
+
+  // JOUEUR 1
   [
     {
       question: "Quel pays a remporté la Coupe du Monde 2018 ?",
+
       answers: [
-        { img: "https://flagcdn.com/w320/br.png", text: "Brésil" },
-        { img: "https://flagcdn.com/w320/fr.png", text: "France" },
-        { img: "https://flagcdn.com/w320/de.png", text: "Allemagne" },
-        { img: "https://flagcdn.com/w320/ar.png", text: "Argentine" }
+        {
+          img: "https://flagcdn.com/w320/br.png",
+          text: "Brésil"
+        },
+        {
+          img: "https://flagcdn.com/w320/fr.png",
+          text: "France"
+        },
+        {
+          img: "https://flagcdn.com/w320/de.png",
+          text: "Allemagne"
+        },
+        {
+          img: "https://flagcdn.com/w320/ar.png",
+          text: "Argentine"
+        }
       ],
+
       correct: 1
     },
+
     {
       question: "Quel club a remporté la Ligue des Champions 2021 ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg", text: "Chelsea" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg", text: "Man City" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg", text: "PSG" }
+        { emoji: "🔵", text: "Chelsea" },
+        { emoji: "🔷", text: "Manchester City" },
+        { emoji: "🔴", text: "Liverpool" },
+        { emoji: "🔵🔴", text: "PSG" }
       ],
+
       correct: 0
     },
+
     {
-      question: "Quel joueur est surnommé 'CR7' ?",
+      question: "Quel joueur est surnommé CR7 ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
+        { emoji: "🇵🇹", text: "Cristiano Ronaldo" },
+        { emoji: "🇧🇷", text: "Neymar" },
+        { emoji: "🇫🇷", text: "Kylian Mbappé" },
+        { emoji: "🇺🇾", text: "Luis Suárez" }
       ],
+
       correct: 0
     },
+
     {
-      question: "Quel club a le plus de titres en Premier League ?",
+      question: "Quel club anglais possède le plus de titres de Premier League ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/a/a7/Arsenal_FC.svg", text: "Arsenal" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/7/7a/Chelsea_FC.svg", text: "Chelsea" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/7/7d/Manchester_United_FC_crest.svg", text: "Manchester United" }
+        { emoji: "🔴", text: "Liverpool" },
+        { emoji: "🔴⚪", text: "Arsenal" },
+        { emoji: "🔵", text: "Chelsea" },
+        { emoji: "🔴⚫", text: "Manchester United" }
       ],
+
       correct: 3
     },
+
     {
       question: "Quel joueur a remporté le Ballon d'Or 2022 ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
+        { emoji: "🇫🇷", text: "Karim Benzema" },
+        { emoji: "🇫🇷", text: "Kylian Mbappé" },
+        { emoji: "🇦🇷", text: "Lionel Messi" },
+        { emoji: "🇵🇹", text: "Cristiano Ronaldo" }
       ],
+
       correct: 0
     }
   ],
 
-  // Joueur 2
+
+  // JOUEUR 2
   [
     {
       question: "Quel pays a remporté l'Euro 2020 ?",
+
       answers: [
-        { img: "https://flagcdn.com/w320/it.png", text: "Italie" },
-        { img: "https://flagcdn.com/w320/eng.png", text: "Angleterre" },
-        { img: "https://flagcdn.com/w320/fr.png", text: "France" },
-        { img: "https://flagcdn.com/w320/sp.png", text: "Espagne" }
+        {
+          img: "https://flagcdn.com/w320/it.png",
+          text: "Italie"
+        },
+
+        {
+          img: "https://flagcdn.com/w320/gb-eng.png",
+          text: "Angleterre"
+        },
+
+        {
+          img: "https://flagcdn.com/w320/fr.png",
+          text: "France"
+        },
+
+        {
+          img: "https://flagcdn.com/w320/es.png",
+          text: "Espagne"
+        }
       ],
+
       correct: 0
     },
+
     {
-      question: "Qui est le meilleur buteur de tous les temps du PSG ?",
+      question: "Qui est le meilleur buteur de l'histoire du PSG ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
+        { emoji: "🇫🇷", text: "Kylian Mbappé" },
+        { emoji: "🇸🇪", text: "Zlatan Ibrahimović" },
+        { emoji: "🇧🇷", text: "Neymar" },
+        { emoji: "🇺🇾", text: "Edinson Cavani" }
       ],
+
       correct: 0
     },
+
     {
       question: "Quel club a remporté la Ligue Europa 2021 ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/5/54/Sevilla_FC_logo.svg", text: "Séville" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/0/01/Manchester_United_FC_crest.svg", text: "Man United" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/5/57/Arsenal_FC.svg", text: "Arsenal" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/7/7a/Chelsea_FC.svg", text: "Chelsea" }
+        { emoji: "🇪🇸", text: "Villarreal" },
+        { emoji: "🏴", text: "Manchester United" },
+        { emoji: "🇪🇸", text: "Séville" },
+        { emoji: "🏴", text: "Arsenal" }
       ],
+
       correct: 0
     },
+
     {
-      question: "Quel joueur est surnommé 'La Pulga' ?",
+      question: "Quel joueur est surnommé La Pulga ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/83/Lionel_Messi_20180626.jpg", text: "Messi" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" }
+        { emoji: "🇦🇷", text: "Lionel Messi" },
+        { emoji: "🇫🇷", text: "Kylian Mbappé" },
+        { emoji: "🇧🇷", text: "Neymar" },
+        { emoji: "🇵🇹", text: "Cristiano Ronaldo" }
       ],
+
       correct: 0
     },
+
     {
-      question: "Quel club est surnommé les 'Red Devils' ?",
+      question: "Quel club est surnommé les Red Devils ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/en/7/7d/Manchester_United_FC_crest.svg", text: "Man United" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/c/c1/Chelsea_FC.svg", text: "Chelsea" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/a/a7/Arsenal_FC.svg", text: "Arsenal" }
+        { emoji: "🔴", text: "Manchester United" },
+        { emoji: "🔵", text: "Chelsea" },
+        { emoji: "🔴", text: "Liverpool" },
+        { emoji: "🔴⚪", text: "Arsenal" }
       ],
+
       correct: 0
     }
   ],
 
-  // Joueur 3
+
+  // JOUEUR 3
   [
     {
-      question: "Quel joueur a marqué le but de la victoire en finale de la Coupe du Monde 2014 ?",
+      question: "Qui a marqué le but de la victoire en finale de la Coupe du Monde 2014 ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/1/14/Mario_Gotze_2014.jpg", text: "Götze" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" }
+        { emoji: "🇩🇪", text: "Mario Götze" },
+        { emoji: "🇩🇪", text: "Thomas Müller" },
+        { emoji: "🇦🇷", text: "Lionel Messi" },
+        { emoji: "🇩🇪", text: "Toni Kroos" }
       ],
+
       correct: 0
     },
+
     {
       question: "Quel club a remporté la Copa Libertadores 2021 ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/5/54/Palmeiras_logo.svg", text: "Palmeiras" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/0/01/Manchester_United_FC_crest.svg", text: "Man United" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/7/7a/Chelsea_FC.svg", text: "Chelsea" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" }
+        { emoji: "🇧🇷", text: "Palmeiras" },
+        { emoji: "🇧🇷", text: "Flamengo" },
+        { emoji: "🇦🇷", text: "River Plate" },
+        { emoji: "🇦🇷", text: "Boca Juniors" }
       ],
+
       correct: 0
     },
+
     {
-      question: "Qui est le capitaine actuel de l'équipe d'Argentine ?",
+      question: "Quel joueur argentin est surnommé La Pulga ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/83/Lionel_Messi_20180626.jpg", text: "Messi" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" }
+        { emoji: "🇦🇷", text: "Lionel Messi" },
+        { emoji: "🇦🇷", text: "Di María" },
+        { emoji: "🇦🇷", text: "Agüero" },
+        { emoji: "🇦🇷", text: "Dybala" }
       ],
+
       correct: 0
     },
+
     {
-      question: "Quel joueur est surnommé 'King' à Liverpool ?",
+      question: "Quel joueur égyptien est une star de Liverpool ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/0/09/Salah_2020.jpg", text: "Salah" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" }
+        { emoji: "🇪🇬", text: "Mohamed Salah" },
+        { emoji: "🇸🇳", text: "Sadio Mané" },
+        { emoji: "🇧🇷", text: "Firmino" },
+        { emoji: "🇵🇹", text: "Diogo Jota" }
       ],
+
       correct: 0
     },
+
     {
-      question: "Quel joueur a gagné la Ligue des Nations 2021 avec la France ?",
+      question: "Quelle sélection a remporté la Ligue des Nations 2021 ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
+        { emoji: "🇫🇷", text: "France" },
+        { emoji: "🇪🇸", text: "Espagne" },
+        { emoji: "🇮🇹", text: "Italie" },
+        { emoji: "🇧🇪", text: "Belgique" }
       ],
+
       correct: 0
     }
   ],
 
-  // Joueur 4
+
+  // JOUEUR 4
   [
     {
-      question: "Quel club a remporté la Serie A 2021 ?",
+      question: "Quel club a remporté la Serie A en 2021 ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/2/28/Inter_Milan_Logo_2014.svg", text: "Inter" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Juventus_Turin_Logo.svg", text: "Juventus" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/6/60/AC_Milan_logo.svg", text: "AC Milan" },
-        { img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg", text: "Liverpool" }
+        { emoji: "🔵⚫", text: "Inter Milan" },
+        { emoji: "⚪⚫", text: "Juventus" },
+        { emoji: "🔴⚫", text: "AC Milan" },
+        { emoji: "🔵", text: "Napoli" }
       ],
+
       correct: 0
     },
+
     {
-      question: "Quel joueur argentin joue au PSG ?",
+      question: "Quel joueur brésilien est connu pour jouer ailier gauche au Real Madrid ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/83/Lionel_Messi_20180626.jpg", text: "Messi" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" }
+        { emoji: "🇧🇷", text: "Vinícius Jr." },
+        { emoji: "🇧🇷", text: "Neymar" },
+        { emoji: "🇧🇷", text: "Thiago Silva" },
+        { emoji: "🇧🇷", text: "Alisson" }
       ],
+
       correct: 0
     },
+
     {
-      question: "Quel club a remporté la Bundesliga 2021 ?",
+      question: "Quel club a remporté la Bundesliga en 2021 ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/0/06/Bayern_M%C3%BCnchen_logo_%282017%29.svg", text: "Bayern" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/0/01/Borussia_Dortmund_logo.svg", text: "Dortmund" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/4/41/RB_Leipzig_2014_logo.svg", text: "RB Leipzig" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Schalke_04_logo.svg", text: "Schalke" }
+        { emoji: "🔴⚪", text: "Bayern Munich" },
+        { emoji: "🟡⚫", text: "Dortmund" },
+        { emoji: "🔴⚪", text: "RB Leipzig" },
+        { emoji: "🔵⚪", text: "Schalke" }
       ],
+
       correct: 0
     },
+
     {
-      question: "Quel joueur brésilien joue au Real Madrid ?",
+      question: "Quel joueur français a remporté le Ballon d'Or 2022 ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Neymar_2018.jpg", text: "Neymar" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kylian_Mbappé_2019.jpg", text: "Mbappé" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg", text: "Ronaldo" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Luis_Suarez_2018.jpg", text: "Suarez" }
+        { emoji: "🇫🇷", text: "Karim Benzema" },
+        { emoji: "🇫🇷", text: "Kylian Mbappé" },
+        { emoji: "🇫🇷", text: "Antoine Griezmann" },
+        { emoji: "🇫🇷", text: "Paul Pogba" }
       ],
+
       correct: 0
     },
+
     {
-      question: "Quel joueur espagnol est surnommé 'La Roja' ?",
+      question: "Quel surnom désigne l'équipe nationale espagnole ?",
+
       answers: [
-        { img: "https://upload.wikimedia.org/wikipedia/commons/5/52/Sergio_Ramos_2012.jpg", text: "Sergio Ramos" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/4/45/Andres_Iniesta_2018.jpg", text: "Iniesta" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Xavi_Hernandez_2017.jpg", text: "Xavi" },
-        { img: "https://upload.wikimedia.org/wikipedia/commons/0/09/Fernando_Torres_2011.jpg", text: "Torres" }
+        { emoji: "🇪🇸", text: "La Roja" },
+        { emoji: "🇪🇸", text: "La Pulga" },
+        { emoji: "🇪🇸", text: "Los Blancos" },
+        { emoji: "🇪🇸", text: "La Furia Azul" }
       ],
+
       correct: 0
     }
   ]
 ];
 
-// -------------------------
-// VARIABLES GLOBALES
-// -------------------------
+
+// =========================
+// VARIABLES
+// =========================
+
 let players = [];
 let scores = [];
+
 let currentPlayerIndex = 0;
 let currentQuestion = 0;
-let timer;
+
+let timer = null;
+
 let timeLeft = 10;
 
-// -------------------------
-// GÉRER LES NOMS DE JOUEURS
-// -------------------------
-const playerCountSelect = document.getElementById("player-count");
-const playerNamesDiv = document.getElementById("player-names");
+let answerLocked = false;
+
+
+// =========================
+// ÉLÉMENTS HTML
+// =========================
+
+const homeSection =
+  document.getElementById("home");
+
+const transitionSection =
+  document.getElementById("turn-transition");
+
+const gameSection =
+  document.getElementById("game");
+
+const resultsSection =
+  document.getElementById("results");
+
+const playerCountSelect =
+  document.getElementById("player-count");
+
+const playerNamesDiv =
+  document.getElementById("player-names");
+
+const playButton =
+  document.getElementById("play-btn");
+
+const restartButton =
+  document.getElementById("restart-btn");
+
+const homeButton =
+  document.getElementById("home-btn");
+
+const questionElement =
+  document.getElementById("question");
+
+const answersElement =
+  document.getElementById("answers");
+
+const timerElement =
+  document.getElementById("time");
+
+const progressText =
+  document.getElementById("progress-text");
+
+const progressFill =
+  document.getElementById("progress-fill");
+
+
+// =========================
+// CRÉER LES JOUEURS
+// =========================
 
 function createPlayerInputs() {
-  const count = parseInt(playerCountSelect.value);
+
+  const count =
+    Number(playerCountSelect.value);
+
   playerNamesDiv.innerHTML = "";
-  for (let i = 0; i < count; i++) {
-    const input = document.createElement("input");
+
+  for (
+    let i = 0;
+    i < count;
+    i++
+  ) {
+
+    const input =
+      document.createElement("input");
+
     input.type = "text";
-    input.placeholder = `Nom Joueur ${i + 1}`;
-    input.id = `player${i}`;
+
+    input.id =
+      `player-${i}`;
+
+    input.placeholder =
+      `Nom du joueur ${i + 1}`;
+
+    input.maxLength = 15;
+
     playerNamesDiv.appendChild(input);
   }
 }
-createPlayerInputs();
-playerCountSelect.addEventListener("change", createPlayerInputs);
 
-// -------------------------
-// DÉBUT DU JEU
-// -------------------------
-document.getElementById("play-btn").addEventListener("click", () => {
-  const count = parseInt(playerCountSelect.value);
+
+// =========================
+// LANCER LE QUIZ
+// =========================
+
+function launchQuiz() {
+
+  clearTimer();
+
+  const count =
+    Number(playerCountSelect.value);
+
   players = [];
-  scores = Array(count).fill(0);
-  for (let i = 0; i < count; i++) {
-    const input = document.getElementById(`player${i}`);
-    const name = input ? input.value.trim() : `Joueur ${i + 1}`;
-    players.push(name || `Joueur ${i + 1}`);
-  }
-  currentPlayerIndex = 0;
-  currentQuestion = 0;
-  document.getElementById("home").classList.add("hidden");
-  showTurnTransition();
-});
 
-// -------------------------
+  scores =
+    new Array(count).fill(0);
+
+  for (
+    let i = 0;
+    i < count;
+    i++
+  ) {
+
+    const input =
+      document.getElementById(
+        `player-${i}`
+      );
+
+    let name =
+      input.value.trim();
+
+    if (!name) {
+
+      name =
+        `Joueur ${i + 1}`;
+    }
+
+    players.push(name);
+  }
+
+  currentPlayerIndex = 0;
+
+  currentQuestion = 0;
+
+  answerLocked = false;
+
+  hideAllSections();
+
+  showTurnTransition();
+}
+
+
+// =========================
 // TRANSITION JOUEUR
-// -------------------------
+// =========================
+
 function showTurnTransition() {
-  document.getElementById("turn-transition").classList.remove("hidden");
-  document.getElementById("game").classList.add("hidden");
-  document.getElementById("results").classList.add("hidden");
-  document.getElementById("next-player-text").textContent = `C’est au tour de ${players[currentPlayerIndex]} !`;
+
+  clearTimer();
+
+  hideAllSections();
+
+  transitionSection.classList.remove(
+    "hidden"
+  );
+
+  const nextPlayerText =
+    document.getElementById(
+      "next-player-text"
+    );
+
+  nextPlayerText.textContent =
+    `⚽ C’est au tour de ${players[currentPlayerIndex]} !`;
+
   setTimeout(() => {
-    document.getElementById("turn-transition").classList.add("hidden");
-    startGame();
+
+    transitionSection.classList.add(
+      "hidden"
+    );
+
+    showGame();
+
   }, 1500);
 }
 
-// -------------------------
-// START GAME
-// -------------------------
-function startGame() {
-  document.getElementById("game").classList.remove("hidden");
+
+// =========================
+// AFFICHER LE JEU
+// =========================
+
+function showGame() {
+
+  gameSection.classList.remove(
+    "hidden"
+  );
+
   showQuestion();
+}
+
+
+// =========================
+// AFFICHER QUESTION
+// =========================
+
+function showQuestion() {
+
+  clearTimer();
+
+  answerLocked = false;
+
+  const playerQuestions =
+    questionsByPlayer[currentPlayerIndex];
+
+  const question =
+    playerQuestions[currentQuestion];
+
+  if (!question) {
+
+    finishPlayerTurn();
+
+    return;
+  }
+
+  questionElement.textContent =
+    question.question;
+
+  progressText.textContent =
+    `Question ${currentQuestion + 1} / ${playerQuestions.length}`;
+
+  const progress =
+    ((currentQuestion + 1) /
+      playerQuestions.length) * 100;
+
+  progressFill.style.width =
+    `${progress}%`;
+
+  answersElement.innerHTML = "";
+
+  question.answers.forEach(
+    (answer, index) => {
+
+      const button =
+        document.createElement("button");
+
+      button.className =
+        "answer-btn";
+
+      if (answer.img) {
+
+        const img =
+          document.createElement("img");
+
+        img.src = answer.img;
+
+        img.alt = answer.text;
+
+        img.onerror = function () {
+
+          this.style.display =
+            "none";
+        };
+
+        button.appendChild(img);
+      }
+
+      if (answer.emoji) {
+
+        const emoji =
+          document.createElement("div");
+
+        emoji.textContent =
+          answer.emoji;
+
+        emoji.style.fontSize =
+          "45px";
+
+        emoji.style.marginBottom =
+          "10px";
+
+        button.appendChild(emoji);
+      }
+
+      const text =
+        document.createElement("span");
+
+      text.textContent =
+        answer.text;
+
+      button.appendChild(text);
+
+      button.addEventListener(
+        "click",
+        () => {
+          submitAnswer(index);
+        }
+      );
+
+      answersElement.appendChild(
+        button
+      );
+    }
+  );
+
   startTimer();
 }
 
-// -------------------------
-// AFFICHER QUESTION
-// -------------------------
-function showQuestion() {
-  const q = questionsByPlayer[currentPlayerIndex][currentQuestion];
-  document.getElementById("question").textContent = q.question;
-  document.getElementById("progress-text").textContent = `Question ${currentQuestion + 1} / ${questionsByPlayer[currentPlayerIndex].length}`;
-  document.documentElement.style.setProperty("--progress", `${(currentQuestion / (questionsByPlayer[currentPlayerIndex].length - 1)) * 100}%`);
 
-  const answersDiv = document.getElementById("answers");
-  answersDiv.innerHTML = "";
-  q.answers.forEach((a, index) => {
-    const btn = document.createElement("button");
-    btn.classList.add("answer-btn");
-    btn.innerHTML = `<img src="${a.img}" alt="${a.text}"><span>${a.text}</span>`;
-    btn.onclick = () => submitAnswer(index);
-    answersDiv.appendChild(btn);
-  });
-}
-
-// -------------------------
+// =========================
 // TIMER
-// -------------------------
+// =========================
+
 function startTimer() {
+
+  clearTimer();
+
   timeLeft = 10;
-  document.getElementById("time").textContent = timeLeft;
+
+  timerElement.textContent =
+    timeLeft;
+
   timer = setInterval(() => {
+
     timeLeft--;
-    document.getElementById("time").textContent = timeLeft;
+
+    timerElement.textContent =
+      timeLeft;
+
     if (timeLeft <= 0) {
-      clearInterval(timer);
+
+      clearTimer();
+
       submitAnswer(-1);
     }
+
   }, 1000);
 }
 
-// -------------------------
-// SUBMIT ANSWER
-// -------------------------
+
+function clearTimer() {
+
+  if (timer !== null) {
+
+    clearInterval(timer);
+
+    timer = null;
+  }
+}
+
+
+// =========================
+// RÉPONSE
+// =========================
+
 function submitAnswer(index) {
-  clearInterval(timer);
-  const q = questionsByPlayer[currentPlayerIndex][currentQuestion];
-  const buttons = document.querySelectorAll("#answers button");
-  buttons.forEach(b => b.disabled = true);
 
-  buttons.forEach((btn, i) => {
-    if (i === q.correct) btn.classList.add("correct");
-    else if (i === index) btn.classList.add("wrong");
-  });
+  if (answerLocked) {
+    return;
+  }
 
-  if (index === q.correct) scores[currentPlayerIndex]++;
+  answerLocked = true;
+
+  clearTimer();
+
+  const question =
+    questionsByPlayer
+      [currentPlayerIndex]
+      [currentQuestion];
+
+  const buttons =
+    answersElement.querySelectorAll(
+      ".answer-btn"
+    );
+
+  buttons.forEach(
+    (button, buttonIndex) => {
+
+      button.disabled = true;
+
+      if (
+        buttonIndex ===
+        question.correct
+      ) {
+
+        button.classList.add(
+          "correct"
+        );
+      }
+
+      if (
+        buttonIndex === index &&
+        index !== question.correct
+      ) {
+
+        button.classList.add(
+          "wrong"
+        );
+      }
+    }
+  );
+
+  if (
+    index ===
+    question.correct
+  ) {
+
+    scores[currentPlayerIndex]++;
+  }
 
   setTimeout(() => {
+
     currentQuestion++;
-    if (currentQuestion >= questionsByPlayer[currentPlayerIndex].length) {
-      currentPlayerIndex++;
-      currentQuestion = 0;
-      if (currentPlayerIndex >= players.length) showResults();
-      else showTurnTransition();
+
+    const playerQuestions =
+      questionsByPlayer[
+        currentPlayerIndex
+      ];
+
+    if (
+      currentQuestion >=
+      playerQuestions.length
+    ) {
+
+      finishPlayerTurn();
+
     } else {
+
       showQuestion();
-      startTimer();
     }
+
   }, 1200);
 }
 
-// -------------------------
-// AFFICHER RÉSULTATS
-// -------------------------
-function showResults() {
-  document.getElementById("game").classList.add("hidden");
-  document.getElementById("results").classList.remove("hidden");
 
-  const maxScore = Math.max(...scores);
-  const winners = players.filter((p, i) => scores[i] === maxScore);
-  document.getElementById("winner").textContent = winners.join(" & ") + ` avec ${maxScore} points !`;
+// =========================
+// FIN DU TOUR
+// =========================
 
-  const summary = document.getElementById("score-summary");
-  summary.innerHTML = "";
-  players.forEach((p, i) => {
-    const div = document.createElement("div");
-    div.textContent = `${p} : ${scores[i]} pts`;
-    summary.appendChild(div);
-  });
+function finishPlayerTurn() {
+
+  clearTimer();
+
+  currentPlayerIndex++;
+
+  currentQuestion = 0;
+
+  if (
+    currentPlayerIndex >=
+    players.length
+  ) {
+
+    showResults();
+
+  } else {
+
+    showTurnTransition();
+  }
 }
 
-// -------------------------
-// REVENIR À L'ACCUEIL
-// -------------------------
+
+// =========================
+// RÉSULTATS
+// =========================
+
+function showResults() {
+
+  clearTimer();
+
+  hideAllSections();
+
+  resultsSection.classList.remove(
+    "hidden"
+  );
+
+  const maxScore =
+    Math.max(...scores);
+
+  const winners =
+    players.filter(
+      (player, index) =>
+        scores[index] === maxScore
+    );
+
+  const winnerElement =
+    document.getElementById(
+      "winner"
+    );
+
+  if (winners.length === 1) {
+
+    winnerElement.textContent =
+      `${winners[0]} gagne avec ${maxScore}/5 !`;
+
+  } else {
+
+    winnerElement.textContent =
+      `Égalité entre ${winners.join(
+        " et "
+      )} avec ${maxScore}/5 !`;
+  }
+
+  const summary =
+    document.getElementById(
+      "score-summary"
+    );
+
+  summary.innerHTML = "";
+
+  players.forEach(
+    (player, index) => {
+
+      const line =
+        document.createElement("div");
+
+      line.className =
+        "score-line";
+
+      line.textContent =
+        `${player} : ${scores[index]} / 5`;
+
+      summary.appendChild(line);
+    }
+  );
+}
+
+
+// =========================
+// REJOUER
+// =========================
+
+function restartGame() {
+
+  clearTimer();
+
+  scores =
+    new Array(players.length).fill(0);
+
+  currentPlayerIndex = 0;
+
+  currentQuestion = 0;
+
+  answerLocked = false;
+
+  hideAllSections();
+
+  showTurnTransition();
+}
+
+
+// =========================
+// RETOUR ACCUEIL
+// =========================
+
 function goHome() {
-  document.getElementById("results").classList.add("hidden");
-  document.getElementById("home").classList.remove("hidden");
+
+  clearTimer();
+
+  players = [];
+
+  scores = [];
+
+  currentPlayerIndex = 0;
+
+  currentQuestion = 0;
+
+  answerLocked = false;
+
+  hideAllSections();
+
+  homeSection.classList.remove(
+    "hidden"
+  );
+
   createPlayerInputs();
 }
+
+
+// =========================
+// CACHER LES ÉCRANS
+// =========================
+
+function hideAllSections() {
+
+  homeSection.classList.add(
+    "hidden"
+  );
+
+  transitionSection.classList.add(
+    "hidden"
+  );
+
+  gameSection.classList.add(
+    "hidden"
+  );
+
+  resultsSection.classList.add(
+    "hidden"
+  );
+}
+
+
+// =========================
+// ÉVÉNEMENTS
+// =========================
+
+playerCountSelect.addEventListener(
+  "change",
+  createPlayerInputs
+);
+
+playButton.addEventListener(
+  "click",
+  launchQuiz
+);
+
+restartButton.addEventListener(
+  "click",
+  restartGame
+);
+
+homeButton.addEventListener(
+  "click",
+  goHome
+);
+
+
+// =========================
+// INITIALISATION
+// =========================
+
+createPlayerInputs();
